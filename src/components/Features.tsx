@@ -13,45 +13,50 @@ import {
 const features = [
   {
     icon: PenTool,
-    title: 'Hikaye Yazma',
-    description: 'Her fotoğrafına kişisel notlarını, anılarını ve düşüncelerini ekle.',
+    title: 'Write Your Stories',
+    description: 'Add personal notes, memories, and thoughts to every photo you take.',
     available: true
   },
   {
     icon: Archive,
-    title: 'Akıllı Arşivleme',
-    description: 'Fotoğraflarını ve hikayelerini otomatik olarak düzenle ve kategorize et.',
+    title: 'Smart Archiving',
+    description: 'Automatically organize and categorize your photos and stories for easy access.',
     available: true
   },
   {
     icon: Search,
-    title: 'Kolay Arama',
-    description: 'Notların ve anıların arasında hızlıca arama yap, istediğini bul.',
+    title: 'Powerful Search',
+    description: 'Quickly find any note or memory among your collection with smart search tools.',
     available: true
   },
   {
     icon: Heart,
-    title: 'Anı Zaman Çizelgesi',
-    description: 'Görsel günlüğünü kronolojik olarak gözden geçir, anılarını yeniden yaşa.',
+    title: 'Memory Timeline',
+    description: 'Relive your moments with a beautifully organized chronological timeline.',
     available: true
   },
   {
     icon: Smartphone,
-    title: 'Mobil Odaklı',
-    description: 'Sezgisel arayüzü ile hikaye anlatımını kolaylaştıran mobil deneyim.',
+    title: 'Mobile-First Experience',
+    description: 'Intuitive and seamless storytelling experience optimized for mobile devices.',
     available: true
   },
- 
   {
     icon: Cloud,
-    title: 'Bulut Senkronizasyonu',
-    description: 'Hikayelerini güvenle yedekle ve tüm cihazlarında senkronize et.',
+    title: 'Cloud Sync',
+    description: 'Keep your stories safe and synchronized across all your devices.',
     available: false
   },
   {
     icon: Sparkles,
-    title: 'AI Önerileri',
-    description: 'Yapay zeka ile fotoğrafların için otomatik hikaye önerileri al.',
+    title: 'AI-Powered Suggestions',
+    description: 'Get automatic story ideas and enhancements powered by artificial intelligence.',
+    available: false
+  },
+  {
+    icon: Share,
+    title: 'Easy Sharing',
+    description: 'Share your favorite stories and photos effortlessly with friends and family.',
     available: false
   }
 ];
@@ -62,10 +67,10 @@ const Features = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Güçlü Özellikler
+            Powerful Features
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Notia, fotoğraf yönetiminin basitliğini kişisel hikaye anlatımının gücüyle birleştiriyor.
+            Notia combines the simplicity of photo management with the power of personal storytelling.
           </p>
         </div>
 

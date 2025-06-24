@@ -34,7 +34,7 @@ const Contact = () => {
                 </div>
                 
               <a
-              href="/assets/app-debug.apk"
+              href="https://github.com/VastSea0/notia-web/releases/download/v1.0.1-alpha/app-release.apk"
               download className="flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm text-gray-600 py-3 px-6 rounded-xl border border-orange-200">
                   <Download className="h-5 w-5 text-orange-600" />
                   <span>Android için BETA'yı dene!</span>
