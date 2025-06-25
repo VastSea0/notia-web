@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Download } from 'lucide-react';
 
 const Hero = () => {
+  const [apkUrl, setApkUrl] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchLatestRelease() {
+      try {
+        const response = await fetch('https://api.github.com/repos/VastSea0/notia-web/releases/latest');
+        if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+
+        const data = await response.json();
+        const apkAsset = data.assets.find(a => a.name === 'app-release.apk');
+
+        if (apkAsset) {
+          setApkUrl(apkAsset.browser_download_url);
+        } else {
+          setError('APK not found in latest release');
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchLatestRelease();
+  }, []);
   return (
     <section className="pt-20 pb-16 bg-gradient-to-br from-orange-50 to-orange-100/50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,14 +63,28 @@ const Hero = () => {
             </div>
 
             {/* Android Beta APK Download Button */}
-            <a
-              href="https://github.com/VastSea0/notia-web/releases/download/v1.0.1-alpha/app-release.apk"
-              download
-              className="bg-orange-600 hover:bg-orange-700 transition-colors text-white px-6 py-3 rounded-full border border-orange-700 flex items-center space-x-3 font-medium shadow"
-            >
-              <Download className="h-5 w-5 text-white" />
-              <span>Try the Android BETA!</span>
-            </a>
+            {loading ? (
+              <button
+                disabled
+                className="bg-orange-400 cursor-not-allowed text-white px-6 py-3 rounded-full border border-orange-700 flex items-center space-x-3 font-medium shadow"
+              >
+                <Download className="h-5 w-5 text-white animate-spin" />
+                <span>Loading latest APK...</span>
+              </button>
+            ) : error ? (
+              <div className="text-red-600 font-medium">Error loading APK link</div>
+            ) : (
+              <a
+                href={apkUrl}
+                download
+                className="bg-orange-600 hover:bg-orange-700 transition-colors text-white px-6 py-3 rounded-full border border-orange-700 flex items-center space-x-3 font-medium shadow"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className="h-5 w-5 text-white" />
+                <span>Try the Android BETA!</span>
+              </a>
+            )}
           </div>
 
           <div className="mt-12">
