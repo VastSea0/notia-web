@@ -1,7 +1,34 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Mail, Instagram, Download } from 'lucide-react';
 
 const Contact = () => {
+  const [apkUrl, setApkUrl] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchLatestRelease() {
+      try {
+        const response = await fetch('https://api.github.com/repos/VastSea0/notia-web/releases/latest');
+        if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
+
+        const data = await response.json();
+        const apkAsset = data.assets.find(a => a.name === 'app-release.apk');
+
+        if (apkAsset) {
+          setApkUrl(apkAsset.browser_download_url);
+        } else {
+          setError('APK not found in latest release');
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchLatestRelease();
+  }, []);
+
   return (
     <section id="contact" className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,17 +60,32 @@ const Contact = () => {
                   <span>Google Play - Coming Soon</span>
                 </div>
                 
-              <a
-              href="https://github.com/VastSea0/notia-web/releases/download/v1.0.1-alpha/app-release.apk"
-              download className="flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm text-gray-600 py-3 px-6 rounded-xl border border-orange-200">
-                  <Download className="h-5 w-5 text-orange-600" />
-                  <span>Android için BETA'yı dene!</span>
-                </a>
+                {/* Dinamik APK indirme butonu */}
+                {loading ? (
+                  <button
+                    disabled
+                    className="flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm text-gray-600 py-3 px-6 rounded-xl border border-orange-200 cursor-not-allowed"
+                  >
+                    <Download className="h-5 w-5 text-orange-600 animate-spin" />
+                    <span>En son APK yükleniyor...</span>
+                  </button>
+                ) : error ? (
+                  <div className="text-red-600 font-medium px-6 py-3">
+                    APK linki yüklenirken hata: {error}
+                  </div>
+                ) : (
+                  <a
+                    href={apkUrl}
+                    download
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm text-gray-600 py-3 px-6 rounded-xl border border-orange-200 hover:bg-orange-50 transition"
+                  >
+                    <Download className="h-5 w-5 text-orange-600" />
+                    <span>Android için BETA'yı dene!</span>
+                  </a>
+                )}
               </div>
-
-            
-            
-        
             </div>
 
             <div className="bg-gradient-to-br from-gray-50 to-orange-50/30 p-6 rounded-2xl border border-orange-100">
