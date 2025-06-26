@@ -1,71 +1,103 @@
 # 📓 Notia Changelog
 All notable changes to this project will be documented in this file.
 ![Notia Logo](https://github.com/user-attachments/assets/07e7e304-29f6-4d3f-87e1-3171e1428260)
+ 
+
+## 🔖 v1.0.3-alpha – Modern Notlar ve Favoriler (27 Haziran 2025)
+
+Bu güncellemede Notia, favori notlar ve modernleştirilmiş notlar sayfası ile daha akıllı ve kullanıcı dostu hale geliyor. UI/UX iyileştirmeleriyle uygulama çok daha profesyonel bir görünüme kavuştu.
+
+### ✨ Yeni Özellikler
+
+- ⭐ **Favorilere ekleme/çıkarma:** Notlar ve galeri sayfasında notları favorilere ekleyip çıkarabilirsiniz. Sadece favori notları filtreleyebilirsiniz.
+- 🖼️ **Modern galeri ve notlar sayfası:** Material 3 standartlarına uygun, animasyonlu ve temaya duyarlı yeni tasarım.
+- ⚙️ **Ayarlar sayfası yenilendi:** Bölümlere ayrılmış, modern ListTile/SwitchTile, profil alanı ve mantıksal gruplama ile profesyonel görünüm.
+- 🌙 **Karanlık mod anahtarı:** Ayarlardan karanlık mod açılıp kapatılabilir, tercih kaydedilir ve tüm uygulamaya yansır.
+- 📝 **Notlar sayfası UI/UX:** Modern, erişilebilir ve kullanıcı dostu notlar listesi.
+
+### 🪛 İyileştirmeler
+
+- 🐞 Eski notlarda `favorite` alanı yoksa hata oluşmuyor, varsayılan olarak `false` atanıyor.
+- 🎨 Tüm sayfalarda Material 3 ve erişilebilirlik standartlarına uygunluk.
+- ⚡ Performans ve animasyon iyileştirmeleri.
+- 🌐 Tüm yeni UI metinleri Türkçe, İngilizce ve İtalyanca olarak yerelleştirildi.
+
+### 🐞 Bilinen Kısıtlamalar
+
+- 🔄 Dil değiştirildiğinde bazı öne çıkan özellikler sıfırlanmıyor (v1.0.4’te düzeltilecek).
+- 🧪 Hâlâ alpha: Bazı UI öğeleri değişebilir veya beklenmedik davranabilir.
+
+### 🧭 Yakında (v1.0.4+ yol haritası)
+
+- 🤖 Gerçek AI destekli fotoğraf ve not sınıflandırma.
+- 📍 Konum tabanlı fotoğraf sıralama.
+- 📝 Zengin not düzenleme (Markdown + gömülü görseller).
+- ☁️ Güvenli yedekleme/senkronizasyon (şifreli & offline-first).
 
 ---
 
-## 🔖 v1.0.2-alpha – Smarter Gallery Filtering (June 25, 2025)
+## 🔖 v1.0.2-alpha – Smarter Gallery Filtering (25 Haziran 2025)
 
-In this update, Notia becomes smarter and more organized with the introduction of intelligent folder filtering. Your gallery is now easier to explore, manage, and enjoy.
+Bu güncellemede Notia, akıllı klasör filtreleme ile daha düzenli ve keşfedilebilir bir galeri sunuyor.
 
-### ✨ New Features
+### ✨ Yeni Özellikler
 
-- 🧠 **Smart Folder Filtering (AI-style preview):** Notia now detects subfolders like `Camera`, `Screenshots`, etc., and allows filtering based on folder structure.
-- 💡 **Highlighted “AI-powered” section** in the gallery to guide users toward the smart filtering system.
-- 🚀 **Tag suggestion logic** based on file paths and directory structure (static, early-stage AI simulation).
-- 🔄 First-time **pulse animation** on smart filtering section draws attention to new features.
-- 📥 **Automatic update check and APK download:** Users can now check for the latest version directly in Settings, download, and install updates from GitHub Releases without needing a store.
-- 🔔 **User-friendly update notifications:** Localized snackbars inform users about update status (checking, up-to-date, completed, or errors).
-- ⚙️ **Permission handling** improved to request install permissions before APK install attempts.
-- 📁 **Real-time directory picker update:** Changing photo directory in Settings now immediately updates the gallery content.
+- 🧠 **Akıllı klasör filtreleme:** Galeride alt klasörler (Kamera, Ekran Görüntüleri vb.) algılanır ve filtrelenebilir.
+- 💡 **“AI-powered” bölümü:** Akıllı filtreleme sistemine yönlendiren öne çıkan alan.
+- 🚀 **Etiket öneri mantığı:** Dosya yolu ve klasör yapısına göre statik etiket önerileri.
+- 🔄 **Pulse animasyonu:** Akıllı filtreleme bölümünde dikkat çekici animasyon.
+- 📥 **Otomatik güncelleme kontrolü ve APK indirme:** Ayarlardan güncellemeleri kontrol edip, doğrudan APK indirip kurabilirsiniz.
+- 🔔 **Kullanıcı dostu güncelleme bildirimleri:** Yerelleştirilmiş snackbar’lar ile güncelleme durumu hakkında bilgilendirme.
+- ⚙️ **İzin yönetimi:** APK kurulumu öncesi gerekli izinler istenir.
+- 📁 **Gerçek zamanlı klasör seçici güncellemesi:** Ayarlardan fotoğraf klasörü değiştiğinde galeri anında güncellenir.
 
-### 🪛 Improvements
+### 🪛 İyileştirmeler
 
-- 📂 Directory picker in Settings now updates the gallery in real time.
-- 🖼️ Photo count display now reflects both filtered and total images.
-- ⚙️ Optimized image loading with parallel file validation and better filtering performance.
-- 🧹 Cleaned up update flow with better console logs for easier debugging.
-- 🌐 Localized all new UI strings for English, Turkish, and Italian.
-- 📝 Added changelog viewer page accessible from Settings → What's New.
+- 📂 Klasör seçici artık galeriyi anında güncelliyor.
+- 🖼️ Fotoğraf sayacı hem filtrelenmiş hem toplam görselleri gösteriyor.
+- ⚙️ Paralel dosya doğrulama ve daha iyi filtreleme performansı.
+- 🧹 Güncelleme akışı temizlendi, hata ayıklama kolaylaştı.
+- 🌐 Tüm yeni UI metinleri Türkçe, İngilizce ve İtalyanca olarak yerelleştirildi.
+- 📝 Ayarlardan erişilebilen “Ne var ne yok?” sayfası eklendi.
 
-### 🐞 Known Limitations
+### 🐞 Bilinen Kısıtlamalar
 
-- ❗ “AI-powered” features are currently logic-based, not machine learning (ML will come in future versions).
-- 🔄 Language switching doesn’t reset feature highlights (planned for v1.0.3).
-- 🧪 Still in alpha: some UI elements may change or behave unexpectedly.
-- 📲 APK install requires manual permission granting due to Android security model.
+- ❗ “AI-powered” özellikler şimdilik mantık tabanlı, gerçek makine öğrenimi sonraki sürümlerde gelecek.
+- 🔄 Dil değişimi öne çıkan özellikleri sıfırlamıyor (v1.0.3’te düzeltilecek).
+- 🧪 Hâlâ alpha: Bazı UI öğeleri değişebilir veya beklenmedik davranabilir.
+- 📲 APK kurulumu için manuel izin verilmesi gerekiyor.
 
-### 🧭 Coming Soon (v1.0.3+ roadmap)
+### 🧭 Yakında (v1.0.3+ yol haritası)
 
-- 🤖 True AI-powered screenshot & camera classification with offline models.
-- 📍 Location-based photo sorting.
-- 📝 Richer photo note editing (Markdown + embedded images).
-- ☁️ Secure backup/sync (encrypted & offline-first model).
+- 🤖 Gerçek AI destekli kamera/ekran görüntüsü sınıflandırması.
+- 📍 Konum tabanlı fotoğraf sıralama.
+- 📝 Zengin not düzenleme (Markdown + gömülü görseller).
+- ☁️ Güvenli yedekleme/senkronizasyon (şifreli & offline-first).
 
 ---
 
+## 🔖 v1.0.1-alpha – İlk Açık Alpha Sürümü (20 Haziran 2025)
 
-## 🔖 v1.0.1-alpha – First Public Alpha Release (June 20, 2025)
+Notia'nın ilk alpha sürümü, kişisel fotoğraf günlüğünüz olarak yayında.
 
-This is the first alpha release of Notia, your personal photo journal app.
+### ✨ Yeni Özellikler
 
-### ✨ New Features
+- 🌍 **Çoklu dil desteği:** Türkçe, İngilizce ve İtalyanca. Ayarlardan değiştirilebilir.
+- 📚 **Onboarding ekranı:** Yeni kullanıcılara Notia’nın amacını tanıtır.
+- 📷 **Fotoğraf görüntüleyici geliştirmeleri:** Başlık, açıklama ve etiketlerle daha temiz bir görünüm.
+- 🧭 **Navigasyon iyileştirmeleri:** Fotoğraflar arasında “İleri” ve “Geri” butonları.
+- ⚙️ **Geliştirici araçları:** Ayarlarda debug paneli.
 
-- 🌍 **Multi-language support:** Turkish, English, and Italian. Switchable via the Settings page.
-- 📚 **Onboarding screen:** Introduces the purpose of Notia to new users.
-- 📷 **Photo viewer enhancements:** Cleaner layout with titles, descriptions, and tags.
-- 🧭 **Navigation improvements:** “Next” and “Previous” buttons for photo navigation.
-- ⚙️ **Developer tools:** New debug panel in Settings for internal testing and insights.
+### 🪛 İyileştirmeler
 
-### 🪛 Improvements
+- 📖 Tüm görünen metinler Flutter’ın `flutter_localizations` ve `intl` paketleriyle yerelleştirildi.
+- 🎨 Material 3 görsel yenilemesi.
+- 🛠️ `l10n.yaml` ile yerelleştirme varlık yönetimi.
+- 🧱 Uygulama yapısı uluslararasılaştırmaya uygun hale getirildi.
 
-- 📖 All visible strings are now localized using Flutter's `flutter_localizations` and `intl` packages.
-- 🎨 Material 3 visual overhaul.
-- 🛠️ `l10n.yaml` added for localization asset management.
-- 🧱 App structure optimized for future internationalization.
+### 🐞 Bilinen Kısıtlamalar
 
-### 🐞 Known Limitations
+- 🗣️ Bazı statik UI öğeleri henüz yerelleştirilmedi.
+- 🤖 AI özellikleri placeholder (yakında 🚧).
+- ⚠️ Uygulama erken alpha – güncellemeler arasında veri kaybı olabilir.
 
-- 🗣️ Some static UI elements are not yet localized.
-- 🤖 AI features are placeholders (coming soon 🚧).
-- ⚠️ App is in early alpha – data loss may occur between updates.
