@@ -62,7 +62,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Android Beta APK Download Button */}
+             
             {loading ? (
               <button
                 disabled
