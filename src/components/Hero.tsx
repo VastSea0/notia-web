@@ -46,7 +46,7 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            {/* App Store Coming Soon Button */}
+ 
             <div className="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-200">
               <div className="flex items-center space-x-3">
                 <Download className="h-5 w-5 text-orange-600" />
@@ -54,7 +54,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Google Play Coming Soon Button */}
+        
             <div className="bg-white/80 backdrop-blur-sm px-6 py-3 rounded-full border border-orange-200">
               <div className="flex items-center space-x-3">
                 <Download className="h-5 w-5 text-orange-600" />
