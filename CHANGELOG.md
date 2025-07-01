@@ -1,7 +1,44 @@
 # 📓 Notia Changelog
 All notable changes to this project will be documented in this file.
 ![Notia Logo](https://github.com/user-attachments/assets/07e7e304-29f6-4d3f-87e1-3171e1428260)
- 
+
+🔖 **v1.0.4-alpha – Smart Gallery, Bug Fixes & Modern Codebase (July 2025)**
+
+In this update, Notia's codebase has been completely modernized. The gallery and notes pages are now faster and smarter, with major improvements to user experience and error handling.
+
+✨ **New Features**
+
+* 🗂️ **Smart folder & gallery management:** Subfolder support, quick folder filtering, and advanced permission handling.
+* 🔄 **Grid/List view cycling:** Switch between gallery views (classic/detailed) with a single tap.
+* 🧠 **AI Pulse banner:** A smart suggestion/AI banner on the homepage (with extensible infrastructure).
+* 📝 **Persistent & secure storage for notes and settings:** Notes and settings are now stored more reliably and safely.
+* 🛠️ **Advanced error handling:** Clear dialogs and feedback when folder or permission issues occur.
+* 🏷️ **Folder & tag filtering:** More precise filtering options in gallery and notes.
+* 🧩 **Modernized codebase:** HomePage and gallery state management rewritten for performance and maintainability.
+
+🪛 **Improvements**
+
+* 🎨 HomeHeader and gallery UI/UX redesigned with full Material 3 compliance – more intuitive and professional.
+* ⚡ Enhanced filtering, sorting, and search algorithms.
+* 🐞 Fixed parameter issues and widget invocation bugs in NotesPage and SettingsPage.
+* 🌙 More robust and faster theme and language switching.
+* 🧹 Code cleanup: Removed unused enums, improved separation of concerns.
+* 🗃️ Per-note storage system for more secure note handling.
+
+🐞 **Known Limitations**
+
+* 🔄 Some UI elements may not immediately reflect language changes (full dynamic localization planned for v1.0.5).
+* 🧪 Still in alpha: Some advanced filtering and AI features are in place but not yet activated.
+
+🧭 **Coming Soon (v1.0.5+ Roadmap)**
+
+* 🤖 Real AI-powered photo and note classification.
+* ☁️ Secure backup & sync (encrypted & offline-first).
+* 📝 Rich note editing (Markdown + embedded media).
+* 🏷️ Advanced batch tag management and filtering.
+* 📊 User analytics and extended developer tools.
+
+
 
 ## 🔖 v1.0.3-alpha – Modern Notes & Favorites (June 27, 2025)
 
