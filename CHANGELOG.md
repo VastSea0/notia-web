@@ -2,6 +2,65 @@
 All notable changes to this project will be documented in this file.
 ![Notia Logo](https://github.com/user-attachments/assets/07e7e304-29f6-4d3f-87e1-3171e1428260)
 
+# 🔖 v1.0.5-alpha – Localization, Pull-to-Refresh & Export System Overhaul (July 2025)
+
+This update continues the alpha evolution of Notia with massive improvements in internationalization, data portability, and platform compatibility. It lays the groundwork for stable cross-device sync and localized user experiences across five languages.
+
+---
+
+## ✨ New Features
+
+* 🌐 **Full multilingual support (5 languages)**: Notia now speaks **English, Turkish, Italian, German, and Azerbaijani** fluently — including the splash screen, settings, registration, search bar, and gallery.
+* 🌀 **Pull-to-Refresh**: Swipe down on the HomePage or NotesPage to instantly refresh content. Smooth, responsive, and just makes sense.
+* 📤 **Mobile Export & Import (Revamped)**: Cross-platform export/import is now reliable on **Android, Linux, and Windows**. Includes:
+
+  * UTF-8 encoding fixes
+  * Byte handling errors resolved
+  * Automatic folder permission checks
+* 🔁 **Grid Reset Mechanism**: Tap to quickly reset gallery view – great for refreshing complex states or reloading after heavy filtering.
+
+---
+
+## 🪛 Improvements
+
+* 🏁 **Localized onboarding experience**: First-time users now get AI-related hints and welcome messages in their native language.
+* 🗂️ **Directory refresh**: When you change the directory, the homepage updates instantly — **no more restart required**.
+* 🧠 **Localized search filters**: Search options and sorting dialogs now fully support all five languages with proper translations and RTL alignment.
+* 🧭 **Improved AI feature descriptions**: Enhanced wording and visual consistency for AI Pulse banner and photo suggestions.
+* 🧹 **Refactored HomePage**: Switched `HomeHeader` and `HomePageState` to `StatefulWidget` for better performance and stability.
+* 🔒 **Authentication Polishing**: UI enhancements to login/register screens with smoother animations and improved accessibility.
+* 🔄 **Grid performance tweaks**: Lazy load improvements, pagination loading indicators, and smoother scroll interactions.
+* 💾 **BackupService logic restructured**: Safer file handling for JSON-based exports, better platform awareness.
+
+---
+
+## 🐞 Fixed
+
+* ❌ **replaceAll crash**: Fixed misuse of `replaceAll()` in localization strings, preventing runtime issues.
+* 📂 **Linux Firebase init**: Firebase initialization now works properly on Linux (conditional init based on platform).
+* 🧱 **Photo preview layout**: Fixed UI glitch with photo layout spacing and image aspect ratio inconsistencies.
+* 🧰 **Snackbar theming**: Snackbar background now uses `colorScheme.primary` for better dark mode support.
+* 💬 **Dynamic language switch bugs**: More UI components now reflect real-time language changes — full support coming in v1.0.6.
+
+---
+
+## 🐞 Known Limitations
+
+* ⛔ **AI features are still scaffolded**: Smart tag suggestions and classification logic are not yet active.
+* 🔐 **Auth session persistence** is basic; remember-me and session restore coming soon.
+* 🔄 **Some language changes still require full refresh**: Working toward full dynamic localization with hot-reload-like behavior.
+
+---
+
+## 🧭 Coming Soon (v1.0.6+ Roadmap)
+
+* ☁️ **Real Firebase sync**: One-click cross-device backup and restoration.
+* 🧠 **AI Photo Tagging**: Automatic tagging based on image content.
+* 🖋️ **Markdown Note Editor**: Rich-text editing, embedding images/videos.
+* 🔄 **Session persistence & biometric login**
+* 📑 **Batch note/tag management**
+
+
 🔖 **v1.0.4-alpha – Smart Gallery, Bug Fixes & Modern Codebase (July 2025)**
 
 In this update, Notia's codebase has been completely modernized. The gallery and notes pages are now faster and smarter, with major improvements to user experience and error handling.
