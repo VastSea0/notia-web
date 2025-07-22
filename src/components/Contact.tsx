@@ -96,7 +96,7 @@ const Contact = () => {
               
               <div className="space-y-3">
                 <a 
-                  href="https://instagram.com/crusttaceas" 
+                  href="https://instagram.com/crusttaceans" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-200"
@@ -105,7 +105,7 @@ const Contact = () => {
                     <Instagram className="h-5 w-5 text-white" />
                   </div>
                   <div>
-                    <div className="font-medium text-gray-900">@crusttaceas</div>
+                    <div className="font-medium text-gray-900">@crusttaceans</div>
                     <div className="text-sm text-gray-600">Instagram'da takip et</div>
                   </div>
                 </a>
