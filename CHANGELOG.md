@@ -2,6 +2,132 @@
 All notable changes to this project will be documented in this file.
 ![Notia Logo](https://github.com/user-attachments/assets/07e7e304-29f6-4d3f-87e1-3171e1428260)
 
+ 
+<h1>🔖 v1.0.6-alpha – AI Upgrade, Rich Notes &amp; Public Build (22 July 2025)</h1>
+<p>Notia enters <strong>beta phase</strong> with smarter AI features, rich-text note support, and full multi-device readiness. Say goodbye to static notes — and hello to intelligence, beauty, and power.</p>
+<hr>
+<h2>✨ New Features</h2>
+<ul>
+<li>
+<p>🧠 <strong>AI-Powered Note Suggestions</strong>: Context-aware tag suggestions and summary generation with localized UI. Built on <strong>Firebase Vertex AI</strong>.</p>
+</li>
+<li>
+<p>🖋️ <strong>Rich Text Notes (Markdown + Media)</strong>:</p>
+<ul>
+<p>Use bold, italic, lists, and embedded images in your notes.</p>
+</li>
+<li>
+<p>Notes are now way more expressive and customizable.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>📎 <strong>Inline AI Prompts</strong>: On photo details, get dynamic suggestions like “summarize this” or “suggest a title” – localized and instantly available.</p>
+</li>
+<li>
+<p>📂 <strong>New Bottom Sheet UI</strong></p>
+</li>
+<li>
+<p>🧪 <strong>Dynamic Prompt Debug Console</strong>: Toggle AI test/debug mode in settings for live prompt editing.</p>
+</li>
+<li>
+<p>🧾 <strong>Auto-Generated Tags</strong>: AI can now analyze your photo and description to recommend relevant tags.</p>
+</li>
+<li>
+<p>💬 <strong>Localized AI explanations</strong>: All AI messages and prompts are localized for a seamless experience.</p>
+</li>
+</ul>
+<hr>
+<h2>🧪 Improvements</h2>
+<ul>
+<li>
+<p>🧭 <strong>Fully localized interface (final polish)</strong>: Even edge case strings and AI messages now have multi-language support. Missing strings fallback gracefully.</p>
+</li>
+<li>
+<p>🧹 <strong>Cleanup pass on string literals</strong>: Removed hardcoded <code>Text("...")</code> elements in favor of <code>AppLocalizations.of(context)</code> methods.</p>
+</li>
+<li>
+<p>🖼️ <strong>Improved image preloading</strong>: PhotoViewer and Grid now load high-res images more smoothly.</p>
+</li>
+<li>
+<p>🧠 <strong>AI pulse animations refined</strong>: Lighter, more fluid animations and better visibility in dark mode.</p>
+</li>
+<li>
+<p>📂 <strong>Backup/export enhancements</strong>: Folder permissions, format validation, and export naming logic improved.</p>
+</li>
+</ul>
+<hr>
+<h2>🐞 Bug Fixes</h2>
+<ul>
+<li>
+<p>🔤 <strong>Dynamic language switch fixes</strong>: More widgets now react instantly to language change.</p>
+</li>
+<li>
+<p>🐛 <strong>AI loading spinner stuck bug fixed</strong></p>
+</li>
+<li>
+<p>🧱 <strong>Rich note overflow bug resolved</strong></p>
+</li>
+<li>
+<p>📸 <strong>Image not found crash fixed in PhotoViewerPage</strong></p>
+</li>
+<li>
+<p>🔄 <strong>Reset button now clears filters properly</strong></p>
+</li>
+<li>
+<p>🧼 General performance and cleanup across HomePage and AI components.</p>
+</li>
+</ul>
+<hr>
+<h2>🚧 Known Limitations</h2>
+<ul>
+<li>
+<p>🧠 AI features require internet and logged-in session (Firebase linked).</p>
+</li>
+<li>
+<p>✍️ Rich-text markdown is not yet synced/exported in HTML/MD form — coming in v1.0.7.</p>
+</li>
+<li>
+<p>🛡️ Session persistence is basic — biometric auth and "Remember Me" coming soon.</p>
+</li>
+<li>
+<p>🔧 Prompt tuning and AI accuracy still improving. Feedback welcome!</p>
+</li>
+</ul>
+<hr>
+<h2>🌍 Public Build Rollout Plan</h2>
+
+Platform | Status
+-- | --
+Android | ✅ Apk build ready
+iOS | 🚫 Not supported yet
+
+
+<hr>
+<h2>🧭 Coming Soon (v1.0.7+ Roadmap)</h2>
+<ul>
+<li>
+<p>🔄 <strong>Session persistence &amp; biometric login</strong></p>
+</li>
+<li>
+<p>☁️ <strong>One-click Firebase sync</strong></p>
+</li>
+<li>
+<p>🧠 <strong>Auto photo classification &amp; smart albums</strong></p>
+</li>
+<li>
+<p>📝 <strong>Rich note syncing in HTML/Markdown</strong></p>
+</li>
+<li>
+<p>📊 <strong>Analytics dashboard (optional, privacy-first)</strong></p>
+</li>
+<li>
+<p>🏷️ <strong>Bulk tag/note management tools</strong></p>
+</li>
+</ul>
+<hr>
+ </body></html>
+ 
 # 🔖 v1.0.5-alpha – Localization, Pull-to-Refresh & Export System Overhaul (July 2025)
 
 This update continues the alpha evolution of Notia with massive improvements in internationalization, data portability, and platform compatibility. It lays the groundwork for stable cross-device sync and localized user experiences across five languages.
