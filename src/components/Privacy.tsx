@@ -59,9 +59,9 @@ const Privacy = () => {
 
             {/* NotiaAI Service */}
             <div className="bg-gradient-to-r from-orange-50 to-orange-100/50 rounded-xl p-6 mb-6 border border-orange-200">
-              <h3 className="text-xl font-semibold text-slate-900 mb-4">1. NotiaAI Service (Firebase Vertex AI)</h3>
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">1. NotiaAI Service (GitHub Models)</h3>
               <div className="space-y-3 text-slate-700">
-                <p><strong>Third-Party Provider:</strong> Google Firebase Vertex AI</p>
+                <p><strong>Third-Party Provider:</strong> GitHub Models (GPT-4.1)</p>
                 <p><strong>Data Collected:</strong></p>
                 <div className="ml-4 space-y-1">
                   <p>→ AI prompt text submitted by users</p>

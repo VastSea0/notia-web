@@ -34,7 +34,7 @@ const changelogVersions = [
     date: "July 22, 2025",
     description: "Notia enters beta phase with smarter AI features, rich-text note support, and full multi-device readiness.",
     features: [
-      "🧠 AI-Powered Note Suggestions: Context-aware tag suggestions and summary generation with localized UI. Built on Firebase Vertex AI.",
+      "🧠 AI-Powered Note Suggestions: Context-aware tag suggestions and summary generation with localized UI. Built on GitHub Models (GPT-4.1).",
       "🖋️ Rich Text Notes (Markdown + Media): Use bold, italic, lists, and embedded images in your notes.",
       "📎 Inline AI Prompts: On photo details, get dynamic suggestions like 'summarize this' or 'suggest a title' – localized and instantly available.",
       "📂 New Bottom Sheet UI",
@@ -113,7 +113,7 @@ const features = [
   {
     icon: Brain,
     title: 'AI-Powered Note Suggestions',
-    description: 'Context-aware tag suggestions and summary generation with localized UI. Built on Firebase Vertex AI.',
+    description: 'Context-aware tag suggestions and summary generation with localized UI. Built on GitHub Models (GPT-4.1).',
     status: 'available',
     version: 'v1.0.6'
   },

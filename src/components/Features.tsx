@@ -16,7 +16,7 @@ const features = [
   {
     icon: Brain,
     title: 'AI-Powered Suggestions',
-    description: 'Context-aware tag suggestions and summary generation with localized UI, powered by Firebase Vertex AI.',
+    description: 'Context-aware tag suggestions and summary generation with localized UI, powered by GitHub Models (GPT-4.1).',
     available: true,
     highlight: true
   },
@@ -128,7 +128,7 @@ const Features = () => {
         <div className="mt-12 text-center">
           <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">
             <Brain className="h-4 w-4" />
-            <span>Powered by Firebase Vertex AI</span>
+            <span>Powered by GitHub Models (GPT-4.1)</span>
           </div>
           <p className="text-gray-600 mt-3 text-sm">
             Experience the future of photo journaling with intelligent, context-aware AI assistance.

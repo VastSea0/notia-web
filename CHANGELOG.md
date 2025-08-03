@@ -9,7 +9,7 @@ All notable changes to this project will be documented in this file.
 <h2>✨ New Features</h2>
 <ul>
 <li>
-<p>🧠 <strong>AI-Powered Note Suggestions</strong>: Context-aware tag suggestions and summary generation with localized UI. Built on <strong>Firebase Vertex AI</strong>.</p>
+<p>🧠 <strong>AI-Powered Note Suggestions</strong>: Context-aware tag suggestions and summary generation with localized UI. Built on <strong>GitHub Models (GPT-4.1)</strong>.</p>
 </li>
 <li>
 <p>🖋️ <strong>Rich Text Notes (Markdown + Media)</strong>:</p>

@@ -70,7 +70,7 @@ const HowItWorks = () => {
                     {index === 1 && (
                       <div className="flex flex-wrap gap-2 mt-4">
                         <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
-                          Firebase Vertex AI
+                          GitHub Models (GPT-4.1)
                         </span>
                         <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
                           Rich Text Editor
