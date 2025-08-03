@@ -51,25 +51,31 @@ const Header = () => {
           <nav className="hidden md:flex items-center space-x-8">
             <button
               onClick={() => scrollToSection('features')}
-              className="text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
               How It Works
             </button>
+            <Link
+              to="/versions"
+              className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
+            >
+              Versions
+            </Link>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
               Contact
             </button>
             <Link
               to="/privacy"
-              className="text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
               Privacy
             </Link>
@@ -77,7 +83,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-slate-600 hover:text-blue-600 transition-colors"
+            className="md:hidden p-2 text-slate-600 hover:text-orange-600 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -94,25 +100,32 @@ const Header = () => {
           <div className="py-4 space-y-3 bg-white/95 rounded-xl mt-2 backdrop-blur-sm border border-slate-200/60">
             <button
               onClick={() => scrollToSection('features')}
-              className="block w-full text-left px-4 py-2 text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="block w-full text-left px-4 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
               Features
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="block w-full text-left px-4 py-2 text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="block w-full text-left px-4 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
               How It Works
             </button>
+            <Link
+              to="/versions"
+              className="block px-4 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Versions
+            </Link>
             <button
               onClick={() => scrollToSection('contact')}
-              className="block w-full text-left px-4 py-2 text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="block w-full text-left px-4 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
               Contact
             </button>
             <Link
               to="/privacy"
-              className="block px-4 py-2 text-slate-600 hover:text-blue-600 transition-colors font-medium"
+              className="block px-4 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Privacy Policy

@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center space-x-2 text-sm text-slate-400">
               <span>Made with</span>
-              <Heart className="h-4 w-4 text-blue-400 fill-current" />
+              <Heart className="h-4 w-4 text-orange-400 fill-current" />
               <span>by Egehan KAHRAMAN (VastSea)</span>
             </div>
           </div>
@@ -29,6 +29,14 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Links</h3>
             <ul className="space-y-3 text-slate-400">
+              <li>
+                <Link
+                  to="/versions"
+                  className="hover:text-white transition-colors"
+                >
+                  Version Info
+                </Link>
+              </li>
               <li>
                 <Link
                   to="/privacy"

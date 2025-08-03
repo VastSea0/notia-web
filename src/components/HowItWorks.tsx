@@ -1,24 +1,30 @@
 import React from 'react';
-import { Camera, Edit3, Heart } from 'lucide-react';
+import { Camera, Brain, Heart, Archive } from 'lucide-react';
 
 const steps = [
   {
     icon: Camera,
-    title: 'Capture a Photo',
-    description: 'Take a new photo or select one from your gallery.',
+    title: 'Capture or Import Photos',
+    description: 'Take new photos or select from your gallery. Notia supports all major image formats and subfolder organization.',
     image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
   },
   {
-    icon: Edit3,
-    title: 'Write Your Story',
-    description: 'Add your thoughts, memories, or notes related to the moment.',
+    icon: Brain,
+    title: 'AI-Enhanced Storytelling',
+    description: 'Get AI-powered tag suggestions, summaries, and inline prompts. Rich text support with markdown, bold, italic, and embedded media.',
     image: 'https://images.pexels.com/photos/1329296/pexels-photo-1329296.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
   },
   {
     icon: Heart,
-    title: 'Save and Remember',
-    description: 'Your photo story is saved automatically and securely archived.',
+    title: 'Organize & Favorite',
+    description: 'Add notes to favorites, filter by categories, and use smart search to find memories instantly across multiple languages.',
     image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+  },
+  {
+    icon: Archive,
+    title: 'Sync & Export',
+    description: 'Pull-to-refresh for instant updates, cross-platform export/import, and secure local storage with Firebase integration.',
+    image: 'https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
   },
 ];
 
@@ -28,10 +34,10 @@ const HowItWorks = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            How It Works
+            How Notia Works
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Turn your photos into meaningful stories in just three simple steps.
+            Experience the full power of AI-enhanced photo journaling in four simple steps with Notia v1.0.6-alpha.
           </p>
         </div>
 
@@ -59,6 +65,35 @@ const HowItWorks = () => {
                     <p className="text-lg text-gray-600 leading-relaxed">
                       {step.description}
                     </p>
+                    
+                    {/* Add feature highlights based on step */}
+                    {index === 1 && (
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
+                          Firebase Vertex AI
+                        </span>
+                        <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
+                          Rich Text Editor
+                        </span>
+                        <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
+                          Auto Tags
+                        </span>
+                      </div>
+                    )}
+                    
+                    {index === 2 && (
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
+                          5 Languages
+                        </span>
+                        <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
+                          Smart Search
+                        </span>
+                        <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
+                          Favorites System
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -72,6 +107,13 @@ const HowItWorks = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-6 py-3 rounded-full text-sm font-medium">
+            <Brain className="h-4 w-4" />
+            <span>AI features require internet connection and Firebase account</span>
+          </div>
         </div>
       </div>
     </section>

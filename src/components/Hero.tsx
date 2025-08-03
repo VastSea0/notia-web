@@ -30,13 +30,13 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="pt-20 pb-16 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/20">
+    <section className="pt-20 pb-16 bg-gradient-to-br from-slate-50 via-orange-50/30 to-orange-100/20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-8">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-slate-900 leading-tight">
               Turn Your Photos
-              <span className="text-blue-600 block">
+              <span className="text-orange-600 block">
                 Into Stories
               </span>
             </h1>
@@ -64,7 +64,7 @@ const Hero = () => {
             {loading ? (
               <button
                 disabled
-                className="bg-blue-400 cursor-not-allowed text-white px-6 py-3 rounded-2xl border border-blue-500 flex items-center space-x-3 font-medium shadow-sm"
+                className="bg-orange-400 cursor-not-allowed text-white px-6 py-3 rounded-2xl border border-orange-500 flex items-center space-x-3 font-medium shadow-sm"
               >
                 <Download className="h-5 w-5 text-white animate-spin" />
                 <span>Loading latest APK...</span>
@@ -75,7 +75,7 @@ const Hero = () => {
               <a
                 href={apkUrl}
                 download
-                className="bg-blue-600 hover:bg-blue-700 transition-colors text-white px-6 py-3 rounded-2xl border border-blue-700 flex items-center space-x-3 font-medium shadow-sm"
+                className="bg-orange-600 hover:bg-orange-700 transition-colors text-white px-6 py-3 rounded-2xl border border-orange-700 flex items-center space-x-3 font-medium shadow-sm"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -94,7 +94,7 @@ const Hero = () => {
                   alt="Notia app screenshot: Gallery"
                   className="w-full h-[400px] object-cover object-top rounded-2xl mb-4 border border-slate-100 shadow-sm"
                 />
-                <div className="absolute top-4 left-4 bg-blue-500 text-white text-xs px-3 py-1 rounded-full shadow-sm">
+                <div className="absolute top-4 left-4 bg-orange-500 text-white text-xs px-3 py-1 rounded-full shadow-sm">
                   Gallery
                 </div>
                 <div className="text-left space-y-2 mt-3">
@@ -112,7 +112,7 @@ const Hero = () => {
                   alt="Notia app screenshot: Add Story"
                   className="w-full h-[400px] object-cover object-top rounded-2xl mb-4 border border-slate-100 shadow-sm"
                 />
-                <div className="absolute top-4 left-4 bg-green-500 text-white text-xs px-3 py-1 rounded-full shadow-sm">
+                <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs px-3 py-1 rounded-full shadow-sm">
                   Add Story
                 </div>
                 <div className="text-left space-y-2 mt-3">
@@ -130,7 +130,7 @@ const Hero = () => {
                   alt="Notia app screenshot: Customize and Manage"
                   className="w-full h-[400px] object-cover object-top rounded-2xl mb-4 border border-slate-100 shadow-sm"
                 />
-                <div className="absolute top-4 left-4 bg-purple-500 text-white text-xs px-3 py-1 rounded-full shadow-sm">
+                <div className="absolute top-4 left-4 bg-orange-700 text-white text-xs px-3 py-1 rounded-full shadow-sm">
                   Manage
                 </div>
                 <div className="text-left space-y-2 mt-3">
