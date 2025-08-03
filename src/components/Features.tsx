@@ -1,63 +1,80 @@
 import React from 'react';
 import { 
-  PenTool, 
-  Search, 
-  Heart, 
-  Smartphone,
+  Brain, 
+  Edit3, 
+  Sparkles, 
   Archive,
-  Share,
-  Cloud,
-  Sparkles
+  Globe,
+  RefreshCw,
+  Download,
+  Heart,
+  Search,
+  Smartphone
 } from 'lucide-react';
 
 const features = [
   {
-    icon: PenTool,
-    title: 'Write Your Stories',
-    description: 'Add personal notes, memories, and thoughts to every photo you take.',
-    available: true
+    icon: Brain,
+    title: 'AI-Powered Suggestions',
+    description: 'Context-aware tag suggestions and summary generation with localized UI, powered by GitHub Models (GPT-4.1).',
+    available: true,
+    highlight: true
+  },
+  {
+    icon: Edit3,
+    title: 'Rich Text Notes',
+    description: 'Use bold, italic, lists, and embedded images in your notes. Make your stories more expressive and customizable.',
+    available: true,
+    highlight: true
+  },
+  {
+    icon: Sparkles,
+    title: 'Inline AI Prompts',
+    description: 'Get dynamic AI suggestions like "summarize this" or "suggest a title" directly on photo details.',
+    available: true,
+    highlight: true
   },
   {
     icon: Archive,
     title: 'Smart Archiving',
-    description: 'Automatically organize and categorize your photos and stories for easy access.',
+    description: 'Modern bottom sheet UI with automatic organization and categorization of your photos and stories.',
     available: true
   },
   {
-    icon: Search,
-    title: 'Powerful Search',
-    description: 'Quickly find any note or memory among your collection with smart search tools.',
+    icon: Globe,
+    title: 'Multilingual Support',
+    description: 'Fully localized in English, Turkish, Italian, German, and Azerbaijani with real-time language switching.',
+    available: true
+  },
+  {
+    icon: RefreshCw,
+    title: 'Pull-to-Refresh',
+    description: 'Swipe down on HomePage or NotesPage to instantly refresh content with smooth animations.',
+    available: true
+  },
+  {
+    icon: Download,
+    title: 'Export & Import System',
+    description: 'Cross-platform backup and restore functionality for Android, Linux, and Windows.',
     available: true
   },
   {
     icon: Heart,
-    title: 'Memory Timeline',
-    description: 'Relive your moments with a beautifully organized chronological timeline.',
+    title: 'Favorites & Filtering',
+    description: 'Add notes to favorites, filter by favorites, and organize your most important memories.',
+    available: true
+  },
+  {
+    icon: Search,
+    title: 'Smart Search & Filtering',
+    description: 'Powerful search tools with subfolder detection and tag-based filtering capabilities.',
     available: true
   },
   {
     icon: Smartphone,
-    title: 'Mobile-First Experience',
-    description: 'Intuitive and seamless storytelling experience optimized for mobile devices.',
+    title: 'Mobile-First Design',
+    description: 'Intuitive Material 3 design optimized for mobile devices with dark mode support.',
     available: true
-  },
-  {
-    icon: Cloud,
-    title: 'Cloud Sync',
-    description: 'Keep your stories safe and synchronized across all your devices.',
-    available: false
-  },
-  {
-    icon: Sparkles,
-    title: 'AI-Powered Suggestions',
-    description: 'Get automatic story ideas and enhancements powered by artificial intelligence.',
-    available: false
-  },
-  {
-    icon: Share,
-    title: 'Easy Sharing',
-    description: 'Share your favorite stories and photos effortlessly with friends and family.',
-    available: false
   }
 ];
 
@@ -70,21 +87,25 @@ const Features = () => {
             Powerful Features
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Notia combines the simplicity of photo management with the power of personal storytelling.
+            Discover why Notia v1.0.6-alpha is the smartest way to turn your photos into meaningful stories with AI-powered insights.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
               <div 
                 key={index}
-                className="relative p-6 bg-gradient-to-br from-orange-50 to-white rounded-2xl border border-orange-100 hover:shadow-lg transition-all duration-300"
+                className={`relative p-6 rounded-2xl border transition-all duration-300 ${
+                  feature.highlight 
+                    ? 'bg-gradient-to-br from-orange-50 to-orange-100/50 border-orange-200 hover:shadow-lg hover:border-orange-300' 
+                    : 'bg-gradient-to-br from-orange-50 to-white border-orange-100 hover:shadow-lg'
+                }`}
               >
-                {!feature.available && (
-                  <div className="absolute top-3 right-3 bg-orange-200 text-orange-800 text-xs px-2 py-1 rounded-full font-medium">
-                    Coming Soon
+                {feature.highlight && (
+                  <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium">
+                    AI-Powered
                   </div>
                 )}
                 
@@ -102,6 +123,16 @@ const Features = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-12 text-center">
+          <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">
+            <Brain className="h-4 w-4" />
+            <span>Powered by GitHub Models (GPT-4.1)</span>
+          </div>
+          <p className="text-gray-600 mt-3 text-sm">
+            Experience the future of photo journaling with intelligent, context-aware AI assistance.
+          </p>
         </div>
       </div>
     </section>

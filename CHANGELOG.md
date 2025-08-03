@@ -4,12 +4,12 @@ All notable changes to this project will be documented in this file.
 
  
 <h1>🔖 v1.0.6-alpha – AI Upgrade, Rich Notes &amp; Public Build (22 July 2025)</h1>
-<p>Notia enters <strong>beta phase</strong> with smarter AI features, rich-text note support, and full multi-device readiness. Say goodbye to static notes — and hello to intelligence, beauty, and power.</p>
+<p>Notia enters <strong>alpha phase</strong> with smarter AI features, rich-text note support, and full multi-device readiness. Say goodbye to static notes — and hello to intelligence, beauty, and power.</p>
 <hr>
 <h2>✨ New Features</h2>
 <ul>
 <li>
-<p>🧠 <strong>AI-Powered Note Suggestions</strong>: Context-aware tag suggestions and summary generation with localized UI. Built on <strong>Firebase Vertex AI</strong>.</p>
+<p>🧠 <strong>AI-Powered Note Suggestions</strong>: Context-aware tag suggestions and summary generation with localized UI. Built on <strong>GitHub Models (GPT-4.1)</strong>.</p>
 </li>
 <li>
 <p>🖋️ <strong>Rich Text Notes (Markdown + Media)</strong>:</p>
