@@ -2,7 +2,80 @@
 All notable changes to this project will be documented in this file.
 ![Notia Logo](https://github.com/user-attachments/assets/07e7e304-29f6-4d3f-87e1-3171e1428260)
 
- 
+
+🔖 **v1.0.7-alpha – Smart Storage, Seamless UI & In-App Picker**
+**(03 August 2025)**
+
+Notia evolves into a more polished and privacy-conscious companion: local storage, sleek UI refactors, and smoother image handling pave the way for the future. Your notes now load faster, look cleaner, and respect your device.
+
+---
+
+### ✨ New Features
+
+* 🧾 **Local Note Saving with SharedPreferences**
+  Notes now persist locally — offline support begins here. Ideal for users on the go or with privacy in mind.
+
+* 📸 **In-App Photo Picker Integration**
+  No more switching to gallery. Select or capture photos directly inside Notia using the built-in picker.
+
+* 🗂️ **Note Type Selection UI**
+  Choose between **text** and **photo notes** with a new bottom sheet interface.
+
+* 🔔 **Smart Notifications (AI-Powered)**
+  Get notified when AI improves a note, suggests tags, or updates content — seamlessly integrated with the new notification system.
+
+* 📊 **Telemetry & Analytics Engine**
+  Track anonymized app usage and behavior to improve performance and user experience (opt-out ready).
+
+---
+
+### 🧠 AI & UX Enhancements
+
+* 🖼️ **Aspect Ratio Caching for Images**
+  NotesPage now remembers image sizes for better performance and more stable layout rendering.
+
+* 🧩 **Simplified NoteDetails Layout**
+  Removed visual clutter like `AspectRatio` wrapping — photos display beautifully and consistently.
+
+* 🧠 **More Responsive AIFeatures**
+  Fixed edge cases in photo path nullability, improved messaging, and debug behavior.
+
+---
+
+### 🌐 Localization
+
+* 🌍 **Full Turkish & English Coverage**
+  All new features — including AI, prompts, settings, and note types — are fully localized.
+
+---
+
+### 🧪 Improvements
+
+* ⚡ **Startup Optimization:** Splash screen now shows for just 1 second.
+* 🧹 **Deep Refactoring:** Bottom sheets, viewer pages, and model classes rewritten for clarity and performance.
+* 🔐 **Gradle & Java Upgrade:** Now running on Java 17 with fixed build errors for modern device compatibility.
+* 🧠 **AI-related null safety fixes:** More stable behavior when notes lack images or metadata.
+
+---
+
+### 🐞 Bug Fixes
+
+* ✅ Fixed #31: Missing localization in photo notes
+* ✅ Fixed #33: Nullable `currentVersion` crash in Settings
+* ✅ Fixed #36: Incorrect casing in package name
+* 🧼 Resolved image-not-found edge cases and improved fallback handling
+* 📎 Fixed AI dialog crashes caused by null image references
+
+---
+
+### 🚧 Known Limitations
+
+* 🔗 Rich-text sync/export (HTML/MD) still under development – expected in v1.0.8
+* 🛡️ Session security features (biometrics, Remember Me) still not finalized
+* 🧠 AI suggestion precision being actively tuned — continue sending feedback!
+
+---
+
 <h1>🔖 v1.0.6-alpha – AI Upgrade, Rich Notes &amp; Public Build (22 July 2025)</h1>
 <p>Notia enters <strong>alpha phase</strong> with smarter AI features, rich-text note support, and full multi-device readiness. Say goodbye to static notes — and hello to intelligence, beauty, and power.</p>
 <hr>
