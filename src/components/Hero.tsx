@@ -42,7 +42,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-              Every photo tells a story. With Notia, add your own notes, thoughts, and memories to every moment you capture.
+              Transform your photo gallery into an intelligent storybook with AI-powered suggestions, rich text notes, and multilingual support. Every photo becomes a meaningful memory with Notia v1.0.6-alpha.
             </p>
           </div>
 
@@ -98,9 +98,9 @@ const Hero = () => {
                   Gallery
                 </div>
                 <div className="text-left space-y-2 mt-3">
-                  <h3 className="font-semibold text-slate-900 text-lg">All Your Memories in One Place</h3>
+                  <h3 className="font-semibold text-slate-900 text-lg">Smart Gallery with AI</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Easily find all your photos and their stories in the gallery.
+                    Browse your photos with smart filtering, subfolder detection, and AI-powered organization.
                   </p>
                 </div>
               </div>
@@ -116,9 +116,9 @@ const Hero = () => {
                   Add Story
                 </div>
                 <div className="text-left space-y-2 mt-3">
-                  <h3 className="font-semibold text-slate-900 text-lg">Write Your Story for Each Photo</h3>
+                  <h3 className="font-semibold text-slate-900 text-lg">AI-Enhanced Rich Text Stories</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Add your memories, feelings, or important notes to make your photos more meaningful.
+                    Create rich stories with bold, italic, lists, and embedded media. Get AI suggestions and auto-generated tags.
                   </p>
                 </div>
               </div>
@@ -134,12 +134,32 @@ const Hero = () => {
                   Manage
                 </div>
                 <div className="text-left space-y-2 mt-3">
-                  <h3 className="font-semibold text-slate-900 text-lg">Customize and Manage</h3>
+                  <h3 className="font-semibold text-slate-900 text-lg">Multilingual & Sync-Ready</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">
-                    Change app settings as you like, safely store and organize your memories.
+                    Available in 5 languages with pull-to-refresh, export/import, and favorites system for perfect organization.
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+
+          {/* Feature highlights */}
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+            <div className="text-center p-4">
+              <div className="text-orange-600 font-bold text-2xl">5</div>
+              <div className="text-slate-600 text-sm">Languages</div>
+            </div>
+            <div className="text-center p-4">
+              <div className="text-orange-600 font-bold text-2xl">AI</div>
+              <div className="text-slate-600 text-sm">Powered</div>
+            </div>
+            <div className="text-center p-4">
+              <div className="text-orange-600 font-bold text-2xl">Rich</div>
+              <div className="text-slate-600 text-sm">Text Notes</div>
+            </div>
+            <div className="text-center p-4">
+              <div className="text-orange-600 font-bold text-2xl">Beta</div>
+              <div className="text-slate-600 text-sm">v1.0.6-alpha</div>
             </div>
           </div>
 
