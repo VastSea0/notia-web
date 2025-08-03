@@ -80,7 +80,7 @@ const Hero = () => {
                 rel="noopener noreferrer"
               >
                 <Download className="h-5 w-5 text-white" />
-                <span>Try the Android BETA!</span>
+                <span>Try the Android ALPHA!</span>
               </a>
             )}
           </div>
@@ -158,7 +158,7 @@ const Hero = () => {
               <div className="text-slate-600 text-sm">Text Notes</div>
             </div>
             <div className="text-center p-4">
-              <div className="text-orange-600 font-bold text-2xl">Beta</div>
+              <div className="text-orange-600 font-bold text-2xl">Alpha</div>
               <div className="text-slate-600 text-sm">v1.0.6-alpha</div>
             </div>
           </div>

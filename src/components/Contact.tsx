@@ -82,7 +82,7 @@ const Contact = () => {
                     className="flex items-center justify-center space-x-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl border border-orange-600 hover:from-orange-600 hover:to-orange-700 transition-all duration-200 w-full font-medium"
                   >
                     <Download className="h-5 w-5 text-white" />
-                    <span>Download Android Beta APK</span>
+                    <span>Download Android Alpha APK</span>
                   </a>
                 )}
               </div>

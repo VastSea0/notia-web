@@ -32,7 +32,7 @@ const changelogVersions = [
     version: "v1.0.6-alpha",
     title: "AI Upgrade, Rich Notes & Public Build",
     date: "July 22, 2025",
-    description: "Notia enters beta phase with smarter AI features, rich-text note support, and full multi-device readiness.",
+    description: "Notia enters alpha phase with smarter AI features, rich-text note support, and full multi-device readiness.",
     features: [
       "🧠 AI-Powered Note Suggestions: Context-aware tag suggestions and summary generation with localized UI. Built on GitHub Models (GPT-4.1).",
       "🖋️ Rich Text Notes (Markdown + Media): Use bold, italic, lists, and embedded images in your notes.",
@@ -308,13 +308,13 @@ const Versions = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              AI Upgrade, Rich Notes & Public Build - Notia enters <strong>beta phase</strong> with smarter AI features, 
+              AI Upgrade, Rich Notes & Public Build - Notia enters <strong>alpha phase</strong> with smarter AI features, 
               rich-text note support, and full multi-device readiness.
             </p>
             
             <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
               <CheckCircle className="h-4 w-4" />
-              <span>Beta Release - July 22, 2025</span>
+              <span>Alpha Release - July 22, 2025</span>
             </div>
           </div>
         </div>
@@ -445,9 +445,9 @@ const Versions = () => {
                 <Download className="h-6 w-6 text-white" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Direct Download</h3>
-              <p className="text-gray-600 text-sm mb-3">Beta APK available</p>
+              <p className="text-gray-600 text-sm mb-3">Alpha APK available</p>
               <div className="bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded-full font-medium inline-block">
-                Beta Access
+                Alpha Access
               </div>
             </div>
           </div>
