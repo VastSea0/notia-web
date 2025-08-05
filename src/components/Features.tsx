@@ -87,7 +87,7 @@ const Features = () => {
             Powerful Features
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover why Notia v1.0.6-alpha is the smartest way to turn your photos into meaningful stories with AI-powered insights.
+            Discover why Notia v1.0.7-Alpha is the smartest way to turn your photos into meaningful stories with AI-powered insights.
           </p>
         </div>
 

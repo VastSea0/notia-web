@@ -6,9 +6,7 @@ import {
   Globe, 
   RefreshCw, 
   Archive, 
-  Heart,
   Smartphone,
-  Search,
   Download,
   Calendar,
   CheckCircle,
@@ -23,11 +21,40 @@ import {
 import Header from './Header';
 import Footer from './Footer';
 
-const currentVersion = "v1.0.6-alpha";
-const lastUpdated = "January 15, 2025";
+const currentVersion = "v1.0.7-Alpha";
+const lastUpdated = "August 3, 2025";
 
 // Changelog data parsed from CHANGELOG.md
 const changelogVersions = [
+  {
+    version: "v1.0.7-Alpha",
+    title: "Smart Storage, Seamless UI & In-App Picker",
+    date: "August 3, 2025",
+    description: "Notia evolves into a more polished and privacy-conscious companion: local storage, sleek UI refactors, and smoother image handling pave the way for the future.",
+    features: [
+      "🧾 Local Note Saving with SharedPreferences: Notes now persist locally — offline support begins here. Ideal for users on the go or with privacy in mind.",
+      "📸 In-App Photo Picker Integration: No more switching to gallery. Select or capture photos directly inside Notia using the built-in picker.",
+      "🗂️ Note Type Selection UI: Choose between text and photo notes with a new bottom sheet interface.",
+      "🔔 Smart Notifications (AI-Powered): Get notified when AI improves a note, suggests tags, or updates content — seamlessly integrated with the new notification system.",
+      "📊 Telemetry & Analytics Engine: Track anonymized app usage and behavior to improve performance and user experience (opt-out ready)."
+    ],
+    improvements: [
+      "🖼️ Aspect Ratio Caching for Images: NotesPage now remembers image sizes for better performance and more stable layout rendering.",
+      "🧩 Simplified NoteDetails Layout: Removed visual clutter like AspectRatio wrapping — photos display beautifully and consistently.",
+      "🧠 More Responsive AIFeatures: Fixed edge cases in photo path nullability, improved messaging, and debug behavior.",
+      "⚡ Startup Optimization: Splash screen now shows for just 1 second.",
+      "🧹 Deep Refactoring: Bottom sheets, viewer pages, and model classes rewritten for clarity and performance.",
+      "🔐 Gradle & Java Upgrade: Now running on Java 17 with fixed build errors for modern device compatibility."
+    ],
+    bugFixes: [
+      "✅ Fixed #31: Missing localization in photo notes",
+      "✅ Fixed #33: Nullable currentVersion crash in Settings",
+      "✅ Fixed #36: Incorrect casing in package name",
+      "🧼 Resolved image-not-found edge cases and improved fallback handling",
+      "📎 Fixed AI dialog crashes caused by null image references",
+      "🧠 AI-related null safety fixes: More stable behavior when notes lack images or metadata."
+    ]
+  },
   {
     version: "v1.0.6-alpha",
     title: "AI Upgrade, Rich Notes & Public Build",
@@ -111,6 +138,27 @@ const changelogVersions = [
 
 const features = [
   {
+    icon: Archive,
+    title: 'Local Note Saving',
+    description: 'Notes now persist locally with SharedPreferences — offline support begins here. Perfect for privacy-conscious users.',
+    status: 'available',
+    version: 'v1.0.7'
+  },
+  {
+    icon: Smartphone,
+    title: 'In-App Photo Picker',
+    description: 'No more switching to gallery. Select or capture photos directly inside Notia using the built-in picker.',
+    status: 'available',
+    version: 'v1.0.7'
+  },
+  {
+    icon: Brain,
+    title: 'Smart Notifications (AI-Powered)',
+    description: 'Get notified when AI improves a note, suggests tags, or updates content — seamlessly integrated.',
+    status: 'available',
+    version: 'v1.0.7'
+  },
+  {
     icon: Brain,
     title: 'AI-Powered Note Suggestions',
     description: 'Context-aware tag suggestions and summary generation with localized UI. Built on GitHub Models (GPT-4.1).',
@@ -134,9 +182,9 @@ const features = [
   {
     icon: Archive,
     title: 'New Bottom Sheet UI',
-    description: 'Modern and intuitive interface for managing your photos and notes.',
+    description: 'Modern and intuitive interface for managing your photos and notes with note type selection.',
     status: 'available',
-    version: 'v1.0.6'
+    version: 'v1.0.7'
   },
   {
     icon: Brain,
@@ -158,27 +206,6 @@ const features = [
     description: 'Swipe down on HomePage or NotesPage to instantly refresh content.',
     status: 'available',
     version: 'v1.0.5'
-  },
-  {
-    icon: Download,
-    title: 'Mobile Export & Import',
-    description: 'Cross-platform export/import system for Android, Linux, and Windows.',
-    status: 'available',
-    version: 'v1.0.5'
-  },
-  {
-    icon: Heart,
-    title: 'Favorites System',
-    description: 'Add or remove notes to/from favorites and filter to view only favorite notes.',
-    status: 'available',
-    version: 'v1.0.3'
-  },
-  {
-    icon: Search,
-    title: 'Smart Gallery Filtering',
-    description: 'Subfolders detection and filtering with tag suggestion logic based on file paths.',
-    status: 'available',
-    version: 'v1.0.2'
   }
 ];
 
@@ -308,13 +335,12 @@ const Versions = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              AI Upgrade, Rich Notes & Public Build - Notia enters <strong>alpha phase</strong> with smarter AI features, 
-              rich-text note support, and full multi-device readiness.
+              Smart Storage, Seamless UI & In-App Picker - Notia evolves into a more polished and privacy-conscious companion with local storage, sleek UI refactors, and smoother image handling.
             </p>
             
             <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
               <CheckCircle className="h-4 w-4" />
-              <span>Alpha Release - July 22, 2025</span>
+              <span>Alpha Release - August 3, 2025</span>
             </div>
           </div>
         </div>
