@@ -42,7 +42,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-              Transform your photo gallery into an intelligent storybook with AI-powered suggestions, rich text notes, and multilingual support. Every photo becomes a meaningful memory with Notia v1.0.6-alpha.
+              Transform your photo gallery into an intelligent storybook with AI-powered suggestions, rich text notes, and multilingual support. Every photo becomes a meaningful memory with Notia v1.0.7-Alpha.
             </p>
           </div>
 
@@ -159,7 +159,7 @@ const Hero = () => {
             </div>
             <div className="text-center p-4">
               <div className="text-orange-600 font-bold text-2xl">Alpha</div>
-              <div className="text-slate-600 text-sm">v1.0.6-alpha</div>
+              <div className="text-slate-600 text-sm">v1.0.7-Alpha</div>
             </div>
           </div>
 
