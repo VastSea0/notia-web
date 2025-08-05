@@ -1,10 +1,84 @@
 import React, { useEffect, useState } from 'react';
-import { Download } from 'lucide-react';
+import { Download, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Hero = () => {
   const [apkUrl, setApkUrl] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const appFeatures = [
+    {
+      id: 1,
+      image: "/assets/image-1.png",
+      title: "Chat with NotiaAI",
+      description: "Have intelligent conversations with NotiaAI. Get help, ideas, and insights for your daily journaling.",
+      badge: "NotiaAI Chat",
+      badgeColor: "bg-blue-500",
+      alt: "Notia app screenshot: NotiaAI Chat"
+    },
+    {
+      id: 2,
+      image: "/assets/image-2.png",
+      title: "Add Notes to Photos",
+      description: "Transform your photos into meaningful memories by adding notes and describing your day.",
+      badge: "Photo Gallery",
+      badgeColor: "bg-green-500",
+      alt: "Notia app screenshot: Photo Gallery"
+    },
+    {
+      id: 3,
+      image: "/assets/image-3.png",
+      title: "Perfect Notes with AI",
+      description: "Create perfect notes with NotiaAI assistance or write manually with smart tags and organization.",
+      badge: "Note Creation",
+      badgeColor: "bg-purple-500",
+      alt: "Notia app screenshot: Note Creation"
+    },
+    {
+      id: 4,
+      image: "/assets/image-4.png",
+      title: "Improve Notes with AI",
+      description: "Enhance your notes with AI suggestions, get automatic tags, or improve writing style instantly.",
+      badge: "AI Enhancement",
+      badgeColor: "bg-orange-500",
+      alt: "Notia app screenshot: AI Enhancement"
+    },
+    {
+      id: 5,
+      image: "/assets/image-5.png",
+      title: "Customize AI Personality",
+      description: "Choose NotiaAI's personality and tone - inspiring, Gen Z, analytical, or whatever fits your style.",
+      badge: "AI Personality",
+      badgeColor: "bg-pink-500",
+      alt: "Notia app screenshot: AI Personality"
+    },
+    {
+      id: 6,
+      image: "/assets/image-6.png",
+      title: "All Your Notes",
+      description: "View all your created notes in one place, organize them perfectly, or create new memories instantly.",
+      badge: "Notes View",
+      badgeColor: "bg-indigo-500",
+      alt: "Notia app screenshot: Notes View"
+    }
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % appFeatures.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + appFeatures.length) % appFeatures.length);
+  };
+
+  // Auto-advance slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     async function fetchLatestRelease() {
@@ -86,80 +160,118 @@ const Hero = () => {
           </div>
 
           <div className="mt-16">
-            <div className="flex flex-col lg:flex-row gap-8 justify-center items-center">
-              {/* Image Card 1 */}
-              <div className="relative bg-white/70 backdrop-blur-sm p-6 rounded-3xl border border-slate-200/60 shadow-lg max-w-xs w-full hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/assets/image-2.png"
-                  alt="Notia app screenshot: Gallery"
-                  className="w-full h-[400px] object-cover object-top rounded-2xl mb-4 border border-slate-100 shadow-sm"
-                />
-                <div className="absolute top-4 left-4 bg-orange-500 text-white text-xs px-3 py-1 rounded-full shadow-sm">
-                  Gallery
-                </div>
-                <div className="text-left space-y-2 mt-3">
-                  <h3 className="font-semibold text-slate-900 text-lg">Smart Gallery with AI</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Browse your photos with smart filtering, subfolder detection, and AI-powered organization.
-                  </p>
+            {/* App Features Carousel */}
+            <div className="relative max-w-6xl mx-auto">
+              <div className="overflow-hidden rounded-3xl">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {appFeatures.map((feature, index) => (
+                    <div key={feature.id} className="w-full flex-shrink-0">
+                      <div className="flex flex-col lg:flex-row gap-8 items-center bg-white/80 backdrop-blur-sm p-8 rounded-3xl border border-slate-200/60 shadow-lg mx-4">
+                        {/* Image Section - Mobile Screenshots (Vertical) */}
+                        <div className="flex-shrink-0 relative">
+                          <img
+                            src={feature.image}
+                            alt={feature.alt}
+                            className="w-80 h-[600px] object-cover object-top rounded-3xl border border-slate-100 shadow-xl mx-auto"
+                          />
+                          <div className={`absolute top-6 left-6 ${feature.badgeColor} text-white text-sm px-4 py-2 rounded-full shadow-sm font-medium`}>
+                            {feature.badge}
+                          </div>
+                        </div>
+                        
+                        {/* Content Section */}
+                        <div className="flex-1 space-y-6 text-center lg:text-left lg:pl-8">
+                          <div className="space-y-4">
+                            <h3 className="text-3xl lg:text-4xl font-bold text-slate-900">
+                              {feature.title}
+                            </h3>
+                            <p className="text-lg lg:text-xl text-slate-600 leading-relaxed">
+                              {feature.description}
+                            </p>
+                          </div>
+                          
+                          {/* Feature number indicator */}
+                          <div className="flex items-center justify-center lg:justify-start space-x-4">
+                            <div className="w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+                              <span className="text-white font-bold text-xl">{feature.id}</span>
+                            </div>
+                            <div className="text-left">
+                              <div className="text-slate-500 text-sm">Feature</div>
+                              <div className="text-slate-700 font-semibold">
+                                {feature.id} of {appFeatures.length}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-
-              {/* Image Card 2 */}
-              <div className="relative bg-white/80 backdrop-blur-sm p-6 rounded-3xl border border-slate-200/60 shadow-lg max-w-xs w-full hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/assets/image-1.png"
-                  alt="Notia app screenshot: Add Story"
-                  className="w-full h-[400px] object-cover object-top rounded-2xl mb-4 border border-slate-100 shadow-sm"
-                />
-                <div className="absolute top-4 left-4 bg-orange-600 text-white text-xs px-3 py-1 rounded-full shadow-sm">
-                  Add Story
-                </div>
-                <div className="text-left space-y-2 mt-3">
-                  <h3 className="font-semibold text-slate-900 text-lg">AI-Enhanced Rich Text Stories</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Create rich stories with bold, italic, lists, and embedded media. Get AI suggestions and auto-generated tags.
-                  </p>
-                </div>
-              </div>
-
-              {/* Image Card 3 */}
-              <div className="relative bg-white/90 backdrop-blur-sm p-6 rounded-3xl border border-slate-200/60 shadow-lg max-w-xs w-full hover:scale-105 transition-transform duration-300">
-                <img
-                  src="/assets/image-3.png"
-                  alt="Notia app screenshot: Customize and Manage"
-                  className="w-full h-[400px] object-cover object-top rounded-2xl mb-4 border border-slate-100 shadow-sm"
-                />
-                <div className="absolute top-4 left-4 bg-orange-700 text-white text-xs px-3 py-1 rounded-full shadow-sm">
-                  Manage
-                </div>
-                <div className="text-left space-y-2 mt-3">
-                  <h3 className="font-semibold text-slate-900 text-lg">Multilingual & Sync-Ready</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Available in 5 languages with pull-to-refresh, export/import, and favorites system for perfect organization.
-                  </p>
-                </div>
+              
+              {/* Navigation Buttons */}
+              <button
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full border border-slate-200 shadow-lg hover:bg-white transition-colors flex items-center justify-center group"
+              >
+                <ChevronLeft className="h-6 w-6 text-slate-600 group-hover:text-slate-900" />
+              </button>
+              
+              <button
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full border border-slate-200 shadow-lg hover:bg-white transition-colors flex items-center justify-center group"
+              >
+                <ChevronRight className="h-6 w-6 text-slate-600 group-hover:text-slate-900" />
+              </button>
+              
+              {/* Dots Indicator */}
+              <div className="flex justify-center mt-8 space-x-3">
+                {appFeatures.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentSlide 
+                        ? 'bg-orange-500 w-8' 
+                        : 'bg-slate-300 hover:bg-slate-400'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
           </div>
 
           {/* Feature highlights */}
-          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="text-center p-4">
-              <div className="text-orange-600 font-bold text-2xl">5</div>
-              <div className="text-slate-600 text-sm">Languages</div>
-            </div>
-            <div className="text-center p-4">
-              <div className="text-orange-600 font-bold text-2xl">AI</div>
-              <div className="text-slate-600 text-sm">Powered</div>
-            </div>
-            <div className="text-center p-4">
-              <div className="text-orange-600 font-bold text-2xl">Rich</div>
-              <div className="text-slate-600 text-sm">Text Notes</div>
-            </div>
-            <div className="text-center p-4">
-              <div className="text-orange-600 font-bold text-2xl">Alpha</div>
-              <div className="text-slate-600 text-sm">v1.0.7-Alpha</div>
+          <div className="mt-12 text-center">
+            <p className="text-slate-600 mb-6">Explore all features with the carousel above</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-4xl mx-auto">
+              <div className="text-center p-3">
+                <div className="text-blue-600 font-bold text-xl">AI</div>
+                <div className="text-slate-600 text-xs">Chat</div>
+              </div>
+              <div className="text-center p-3">
+                <div className="text-green-600 font-bold text-xl">Photo</div>
+                <div className="text-slate-600 text-xs">Notes</div>
+              </div>
+              <div className="text-center p-3">
+                <div className="text-purple-600 font-bold text-xl">Smart</div>
+                <div className="text-slate-600 text-xs">Creation</div>
+              </div>
+              <div className="text-center p-3">
+                <div className="text-orange-600 font-bold text-xl">AI</div>
+                <div className="text-slate-600 text-xs">Enhancement</div>
+              </div>
+              <div className="text-center p-3">
+                <div className="text-pink-600 font-bold text-xl">Custom</div>
+                <div className="text-slate-600 text-xs">Personality</div>
+              </div>
+              <div className="text-center p-3">
+                <div className="text-indigo-600 font-bold text-xl">Organize</div>
+                <div className="text-slate-600 text-xs">All Notes</div>
+              </div>
             </div>
           </div>
 

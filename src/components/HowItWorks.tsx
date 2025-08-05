@@ -1,30 +1,30 @@
 import React from 'react';
-import { Camera, Brain, Heart, Archive } from 'lucide-react';
+import { Camera, FileText, MessageSquare, Settings } from 'lucide-react';
 
 const steps = [
   {
     icon: Camera,
-    title: 'Capture or Import Photos',
-    description: 'Take new photos or select from your gallery. Notia supports all major image formats and subfolder organization.',
-    image: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    title: 'Gallery - Browse Your Photos',
+    description: 'Start in the Gallery section where all your device photos are displayed. Tap any photo to open it, add notes, mark as favorite, and swipe left/right to navigate between photos seamlessly.',
+    features: ['Device photo access', 'Swipe navigation', 'Add notes & favorites', 'Photo viewer'],
   },
   {
-    icon: Brain,
-    title: 'AI-Enhanced Storytelling',
-    description: 'Get AI-powered tag suggestions, summaries, and inline prompts. Rich text support with markdown, bold, italic, and embedded media.',
-    image: 'https://images.pexels.com/photos/1329296/pexels-photo-1329296.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    icon: FileText,
+    title: 'Notes - Create & Organize',
+    description: 'Visit the Notes section to view all your created notes. Use the create button to choose between "Photo Note" or "Text Note" - all your memories organized in one place.',
+    features: ['Create button', 'Photo notes', 'Text notes', 'All notes view'],
   },
   {
-    icon: Heart,
-    title: 'Organize & Favorite',
-    description: 'Add notes to favorites, filter by categories, and use smart search to find memories instantly across multiple languages.',
-    image: 'https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    icon: MessageSquare,
+    title: 'NotiaAI Chat - Get AI Help',
+    description: 'Access the floating NotiaAI chat button from anywhere in the app. Chat with AI for note suggestions, inspiration, and intelligent assistance for better storytelling.',
+    features: ['Floating chat button', 'AI suggestions', 'Note recommendations', 'Smart assistance'],
   },
   {
-    icon: Archive,
-    title: 'Sync & Export',
-    description: 'Pull-to-refresh for instant updates, cross-platform export/import, and secure local storage with Firebase integration.',
-    image: 'https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=400&h=300&fit=crop',
+    icon: Settings,
+    title: 'Note Details & Management',
+    description: 'When photos have notes, tap "View Note Details" to open a bottom sheet with full note content. Manage all your memories with rich editing and organization features.',
+    features: ['Bottom sheet view', 'Note details', 'Rich editing', 'Memory management'],
   },
 ];
 
@@ -44,65 +44,39 @@ const HowItWorks = () => {
         <div className="space-y-16">
           {steps.map((step, index) => {
             const IconComponent = step.icon;
-            const isEven = index % 2 === 0;
 
             return (
-              <div key={index} className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}>
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center">
-                      <IconComponent className="h-6 w-6 text-white" />
+              <div key={index} className={`flex flex-col gap-8 items-center`}>
+                <div className="w-full max-w-4xl space-y-6 text-center">
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center">
+                      <IconComponent className="h-8 w-8 text-white" />
                     </div>
-                    <span className="text-3xl font-bold text-orange-200">
+                    <span className="text-4xl font-bold text-orange-300">
                       {String(index + 1).padStart(2, '0')}
                     </span>
                   </div>
 
-                  <div className="space-y-3">
-                    <h3 className="text-2xl font-bold text-gray-900">
+                  <div className="space-y-4">
+                    <h3 className="text-3xl font-bold text-gray-900">
                       {step.title}
                     </h3>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                       {step.description}
                     </p>
                     
-                    {/* Add feature highlights based on step */}
-                    {index === 1 && (
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
-                          GitHub Models (GPT-4.1)
+                    {/* Feature highlights */}
+                    <div className="flex flex-wrap gap-3 justify-center mt-6">
+                      {step.features.map((feature, featureIndex) => (
+                        <span 
+                          key={featureIndex}
+                          className="bg-orange-100 text-orange-800 text-sm px-4 py-2 rounded-full font-medium border border-orange-200"
+                        >
+                          {feature}
                         </span>
-                        <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
-                          Rich Text Editor
-                        </span>
-                        <span className="bg-orange-100 text-orange-800 text-xs px-3 py-1 rounded-full font-medium">
-                          Auto Tags
-                        </span>
-                      </div>
-                    )}
-                    
-                    {index === 2 && (
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
-                          5 Languages
-                        </span>
-                        <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
-                          Smart Search
-                        </span>
-                        <span className="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full font-medium">
-                          Favorites System
-                        </span>
-                      </div>
-                    )}
+                      ))}
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex-1">
-                  <img
-                    src={step.image}
-                    alt={step.title}
-                    className="w-full h-64 object-cover rounded-2xl shadow-lg"
-                  />
                 </div>
               </div>
             );
@@ -111,8 +85,8 @@ const HowItWorks = () => {
 
         <div className="mt-16 text-center">
           <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-6 py-3 rounded-full text-sm font-medium">
-            <Brain className="h-4 w-4" />
-            <span>AI features require internet connection and Firebase account</span>
+            <MessageSquare className="h-4 w-4" />
+            <span>NotiaAI chat requires internet connection • Available in 5 languages</span>
           </div>
         </div>
       </div>
