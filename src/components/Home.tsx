@@ -3,6 +3,7 @@ import Header from './Header';
 import Hero from './Hero';
 import Features from './Features';
 import HowItWorks from './HowItWorks';
+import PricingPreview from './PricingPreview';
 import Contact from './Contact';
 import Footer from './Footer';
 
@@ -12,9 +13,12 @@ const Home = () => {
       <Header />
       <Hero />
       <Features />
+      <PricingPreview />
       <HowItWorks />
       <Contact />
       <Footer />
+     
+
     </div>
   );
 };
