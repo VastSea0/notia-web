@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Crown, 
   Zap, 
@@ -18,12 +18,35 @@ import { Link } from 'react-router-dom';
 
 const Pricing = () => {
   const [selectedPlan, setSelectedPlan] = useState('plus');
+  const [exchangeRate, setExchangeRate] = useState(40); // Default fallback
+  const [isLoadingRate, setIsLoadingRate] = useState(true);
 
+  // Fetch current USD to TRY exchange rate
+  useEffect(() => {
+    const fetchExchangeRate = async () => {
+      try {
+        // Using a free exchange rate API
+        const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+        const data = await response.json();
+        
+        if (data.rates && data.rates.TRY) {
+          setExchangeRate(Math.round(data.rates.TRY * 100) / 100); // Round to 2 decimal places
+        }
+      } catch (error) {
+        console.warn('Failed to fetch exchange rate, using default:', error);
+        // Keep the default rate of 40
+      } finally {
+        setIsLoadingRate(false);
+      }
+    };
+
+    fetchExchangeRate();
+  }, []);
   const plans = [
     {
       id: 'basic',
       name: 'Basic',
-      price: '0₺',
+      price: `${Math.round(0 * exchangeRate)}₺`,
       priceUSD: 'Free',
       period: 'Forever',
       aiLimit: '20 / day',
@@ -49,7 +72,7 @@ const Pricing = () => {
     {
       id: 'plus',
       name: 'Plus',
-      price: '40₺',
+      price: `${Math.round(1 * exchangeRate)}₺`,
       priceUSD: '$1',
       period: 'per month',
       aiLimit: '80 / day',
@@ -72,7 +95,7 @@ const Pricing = () => {
     {
       id: 'pro',
       name: 'Pro',
-      price: '100₺',
+      price: `${Math.round(2.5 * exchangeRate)}₺`,
       priceUSD: '$2.5',
       period: 'per month',
       aiLimit: 'Unlimited',
@@ -121,7 +144,11 @@ const Pricing = () => {
               </div>
             </div>
             <div className="text-sm text-slate-500">
-              1 USD = 40₺ TRY
+              {isLoadingRate ? (
+                <span className="animate-pulse">Loading rate...</span>
+              ) : (
+                `1 USD = ${exchangeRate}₺ TRY`
+              )}
             </div>
           </div>
         </div>
