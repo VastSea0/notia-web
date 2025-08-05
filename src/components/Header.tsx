@@ -62,6 +62,12 @@ const Header = () => {
               How It Works
             </button>
             <Link
+              to="/pricing"
+              className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
+            >
+              Pricing
+            </Link>
+            <Link
               to="/versions"
               className="text-slate-600 hover:text-orange-600 transition-colors font-medium"
             >
@@ -94,7 +100,7 @@ const Header = () => {
         {/* Mobile Dropdown */}
         <div
           className={`md:hidden transition-all duration-300 ${
-            isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
+            isMenuOpen ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0'
           } overflow-hidden`}
         >
           <div className="py-4 space-y-3 bg-white/95 rounded-xl mt-2 backdrop-blur-sm border border-slate-200/60">
@@ -110,6 +116,13 @@ const Header = () => {
             >
               How It Works
             </button>
+            <Link
+              to="/pricing"
+              className="block px-4 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pricing
+            </Link>
             <Link
               to="/versions"
               className="block px-4 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium"

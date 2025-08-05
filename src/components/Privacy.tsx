@@ -147,6 +147,35 @@ const Privacy = () => {
               </div>
             </div>
 
+            {/* Subscription & Billing Data */}
+            <div className="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-xl p-6 mb-6 border border-cyan-100">
+              <h3 className="text-xl font-semibold text-slate-900 mb-4">4. Subscription & Billing Services (Google Play Billing)</h3>
+              <div className="space-y-3 text-slate-700">
+                <p><strong>Third-Party Provider:</strong> Google Play Billing API</p>
+                <p><strong>Subscription Plans Available:</strong></p>
+                <div className="ml-4 space-y-1">
+                  <p>→ <strong>Basic:</strong> Free (20 AI interactions/day, ad-supported)</p>
+                  <p>→ <strong>Plus:</strong> 40₺/$1 per month (80 AI interactions/day, ad-free)</p>
+                  <p>→ <strong>Pro:</strong> 100₺/$2.5 per month (unlimited AI, priority support)</p>
+                </div>
+                <p><strong>Billing Data Collected:</strong></p>
+                <div className="ml-4 space-y-1">
+                  <p>→ Subscription status and tier information</p>
+                  <p>→ Payment processing handled by Google Play (we don't store payment details)</p>
+                  <p>→ Subscription renewal and cancellation events</p>
+                  <p>→ Usage metrics for billing verification</p>
+                </div>
+                <p className="font-medium text-slate-900 bg-cyan-50 p-2 rounded">
+                  💳 <strong>Payment Security:</strong> All payments processed securely by Google Play - we never store credit card information
+                </p>
+                <div className="bg-green-50 p-3 rounded-lg">
+                  <p className="font-medium text-green-900">
+                    🎁 <strong>Beta Reward:</strong> August-September 2025 first-time users receive 1 week of Plus features free!
+                  </p>
+                </div>
+              </div>
+            </div>
+
             {/* Data Subject Rights */}
             <div className="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl p-6 mb-6 border border-indigo-100">
               <h3 className="text-xl font-semibold text-slate-900 mb-4">Your Data Rights & Control</h3>
