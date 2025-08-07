@@ -44,9 +44,9 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-6">
             <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 p-6 rounded-2xl border border-orange-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Download Notia v1.0.7-Alpha</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Download Notia v1.0.8-Alpha</h3>
               <p className="text-gray-600 mb-6">
-                Experience the latest AI-powered features with rich text notes, smart suggestions, and multilingual support.
+                Experience the latest AI-powered features with NotiaAI chat, privacy-first design, and enhanced note handling.
               </p>
               
               <div className="space-y-3">
