@@ -3,6 +3,97 @@ All notable changes to this project will be documented in this file.
 ![Notia Logo](https://github.com/user-attachments/assets/07e7e304-29f6-4d3f-87e1-3171e1428260)
 
 
+# 🔖 **v1.0.8 – Smart AI, Privacy-First & Cleaner Interface**
+
+**(07 August 2025)**
+
+Notia continues its transformation into a smarter, more refined and privacy-respecting workspace. With a redesigned NotiaAI experience, privacy policy compliance, and enhanced note handling — this update makes your workflow faster, more secure, and more intuitive.
+
+---
+
+### ✨ New Features
+
+* 🤖 **NotiaAI Chat Page**
+  Access a brand-new chat interface with personality selection and chat history management.
+
+* 💬 **Integrated AI Features**
+  Use AI directly from **NotesPage**, **PhotoViewer**, and **NoteDetailsBottomSheet**. Added support for pre-made notes, typing indicators, and localized AI messages.
+
+* 🧠 **AI Note Saving & Customization**
+  Notes created with NotiaAI can now be saved directly, with improved theme consistency and message formatting.
+
+* 🔐 **Privacy Policy Integration**
+  Added in-app privacy policy links and acceptance checkboxes on login/registration. Fully localized in **English** and **Turkish**.
+
+* 📈 **Telemetry & Analytics Engine**
+  Added toggleable telemetry service with improved enable/disable logic and event flushing. Clear descriptions and opt-out messages now included.
+
+* ⏱️ **Loading Timeout & Permission Handling**
+  Improved behavior in AI-related workflows with timeout fallback and clearer permission prompts.
+
+---
+
+### 🎨 UI & UX Enhancements
+
+* 🧩 **Adaptive NoteDetailsBottomSheet**
+  Bottom sheets now resize based on content, improving photo and text note handling.
+
+* 🧼 **Refined Onboarding & Theming**
+  Gradients and hardcoded colors replaced with theme-aware styling for a more polished feel.
+
+* 🧠 **Smarter Chat & Note UI**
+  AI suggestions and note creation are now more stable, visually consistent, and error-resilient.
+
+---
+
+### 🌐 Localization
+
+* 🌍 **Full Turkish & English Coverage**
+  Newly added features — including AI chat, telemetry, privacy policy, and system messages — are now fully localized.
+
+* 🗓️ **Improved Time & Save Strings**
+  Added localization for terms like "Yesterday" and enhanced save confirmation messages.
+
+---
+
+### 🧪 Improvements
+
+* 🧱 Improved handling of note types and empty photo states
+* 🪄 Debug logging for Firebase and NotificationService startup behavior
+* 🧰 Cleaned unused imports, improved code formatting across localization and UI files
+* 🖼️ Enhanced in-app photo picker and note type selection interface
+* 🧹 Internal refactors to NotiaAI UI and model structure for consistency
+
+---
+
+### 🐞 Bug Fixes
+
+* ✅ Fixed #39: Replaced incorrect usage of `FilledButton.icon`
+* ✅ Fixed #43: No available photo messages now shown properly in note selection
+* ✅ Fixed #40: Removed unnecessary language options in settings
+* ✅ Fixed #38: (Unspecified but resolved)
+* 🧼 Addressed image-not-found edge cases and AI crashes due to null image references
+* 📎 Fixed crash related to missing privacy URL in settings
+* 🔤 Fixed localization formatting (missing commas, casing issues)
+
+---
+
+### 🔧 Technical & Internal
+
+* 🧪 **App Icon Redesign** – Updated to a cleaner, modern look
+* 🔧 **Gradle/Java Upgrade** – Now running on Java 17
+* 🛠️ **Miscellaneous Performance Improvements** – General enhancements across modules
+
+---
+
+### 🚧 Known Limitations
+
+* 🔐 Biometric security and “Remember Me” still under development
+* 🔤 Rich-text export (HTML/Markdown) coming in **v1.0.9**
+* 🤖 AI recommendation engine undergoing fine-tuning — feedback appreciated!
+
+---
+
 🔖 **v1.0.7-alpha – Smart Storage, Seamless UI & In-App Picker**
 **(03 August 2025)**
 
