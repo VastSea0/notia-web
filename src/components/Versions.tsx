@@ -16,16 +16,49 @@ import {
   ChevronUp,
   ExternalLink,
   Copy,
-  FileText
+  FileText,
+  MessageSquare,
+  Lock,
+  BarChart3
 } from 'lucide-react';
 import Header from './Header';
 import Footer from './Footer';
 
-const currentVersion = "v1.0.7-Alpha";
-const lastUpdated = "August 3, 2025";
+const currentVersion = "v1.0.8-Alpha";
+const lastUpdated = "August 7, 2025";
 
 // Changelog data parsed from CHANGELOG.md
 const changelogVersions = [
+  {
+    version: "v1.0.8-Alpha",
+    title: "Smart AI, Privacy-First & Cleaner Interface",
+    date: "August 7, 2025",
+    description: "Notia continues its transformation into a smarter, more refined and privacy-respecting workspace. With a redesigned NotiaAI experience, privacy policy compliance, and enhanced note handling — this update makes your workflow faster, more secure, and more intuitive.",
+    features: [
+      "🤖 NotiaAI Chat Page: Access a brand-new chat interface with personality selection and chat history management.",
+      "💬 Integrated AI Features: Use AI directly from NotesPage, PhotoViewer, and NoteDetailsBottomSheet with typing indicators and localized AI messages.",
+      "🧠 AI Note Saving & Customization: Notes created with NotiaAI can now be saved directly, with improved theme consistency and message formatting.",
+      "🔐 Privacy Policy Integration: Added in-app privacy policy links and acceptance checkboxes on login/registration. Fully localized.",
+      "📈 Telemetry & Analytics Engine: Added toggleable telemetry service with improved enable/disable logic and clear opt-out messages.",
+      "⏱️ Loading Timeout & Permission Handling: Improved behavior in AI-related workflows with timeout fallback and clearer permission prompts."
+    ],
+    improvements: [
+      "🧩 Adaptive NoteDetailsBottomSheet: Bottom sheets now resize based on content, improving photo and text note handling.",
+      "🧼 Refined Onboarding & Theming: Gradients and hardcoded colors replaced with theme-aware styling for a more polished feel.",
+      "🧠 Smarter Chat & Note UI: AI suggestions and note creation are now more stable, visually consistent, and error-resilient.",
+      "🌍 Full Turkish & English Coverage: Newly added features are now fully localized.",
+      "🗓️ Improved Time & Save Strings: Added localization for terms and enhanced save confirmation messages."
+    ],
+    bugFixes: [
+      "✅ Fixed #39: Replaced incorrect usage of FilledButton.icon",
+      "✅ Fixed #43: No available photo messages now shown properly in note selection",
+      "✅ Fixed #40: Removed unnecessary language options in settings",
+      "✅ Fixed #38: (Unspecified but resolved)",
+      "🧼 Addressed image-not-found edge cases and AI crashes due to null image references",
+      "📎 Fixed crash related to missing privacy URL in settings",
+      "🔤 Fixed localization formatting (missing commas, casing issues)"
+    ]
+  },
   {
     version: "v1.0.7-Alpha",
     title: "Smart Storage, Seamless UI & In-App Picker",
@@ -137,6 +170,34 @@ const changelogVersions = [
 ];
 
 const features = [
+  {
+    icon: MessageSquare,
+    title: 'NotiaAI Chat Page',
+    description: 'Access a brand-new chat interface with personality selection and chat history management.',
+    status: 'available',
+    version: 'v1.0.8'
+  },
+  {
+    icon: Brain,
+    title: 'Integrated AI Features',
+    description: 'Use AI directly from NotesPage, PhotoViewer, and NoteDetailsBottomSheet with localized messages.',
+    status: 'available',
+    version: 'v1.0.8'
+  },
+  {
+    icon: Lock,
+    title: 'Privacy Policy Integration',
+    description: 'In-app privacy policy links and acceptance checkboxes on login/registration, fully localized.',
+    status: 'available',
+    version: 'v1.0.8'
+  },
+  {
+    icon: BarChart3,
+    title: 'Telemetry & Analytics',
+    description: 'Toggleable telemetry service with clear opt-out options for better app improvement.',
+    status: 'available',
+    version: 'v1.0.8'
+  },
   {
     icon: Archive,
     title: 'Local Note Saving',
@@ -335,12 +396,12 @@ const Versions = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Smart Storage, Seamless UI & In-App Picker - Notia evolves into a more polished and privacy-conscious companion with local storage, sleek UI refactors, and smoother image handling.
+              Smart AI, Privacy-First & Cleaner Interface - Notia continues its transformation into a smarter, more refined and privacy-respecting workspace with a redesigned NotiaAI experience.
             </p>
             
             <div className="inline-flex items-center space-x-2 bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium">
               <CheckCircle className="h-4 w-4" />
-              <span>Alpha Release - August 3, 2025</span>
+              <span>Alpha Release - August 7, 2025</span>
             </div>
           </div>
         </div>
