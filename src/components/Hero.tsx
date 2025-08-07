@@ -116,7 +116,7 @@ const Hero = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed font-light">
-              Transform your photo gallery into an intelligent storybook with AI-powered suggestions, rich text notes, and multilingual support. Every photo becomes a meaningful memory with Notia v1.0.7-Alpha.
+              Transform your photo gallery into an intelligent storybook with AI-powered suggestions, rich text notes, and multilingual support. Every photo becomes a meaningful memory with Notia v1.0.8-Alpha.
             </p>
           </div>
 
