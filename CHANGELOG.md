@@ -3,6 +3,77 @@ All notable changes to this project will be documented in this file.
 ![Notia Logo](https://github.com/user-attachments/assets/07e7e304-29f6-4d3f-87e1-3171e1428260)
 
 
+Tamam, o zaman **v1.0.9 alpha (Pre-Beta)** için İngilizce sürüm notlarını fix kısmında **GitHub issue numaraları ve hashtagleriyle** birlikte, commit mesajlarında geçtiği gibi ekleyelim.
+Böylece changelog tamamen teknik olarak izlenebilir olacak.
+
+---
+
+## **Notia v1.0.9 alpha (Pre-Beta)**
+
+**(August 12, 2025)**
+
+This release strengthens **security**, enriches **AI-powered features**, and improves the **overall stability** of Notia. Now you can protect your workspace with biometric and password authentication while enjoying smarter, more versatile AI interactions.
+
+---
+
+### ✨ New Features
+
+* **🔐 Biometric Authentication** – Fingerprint login support with full English & Turkish localization.
+* **🔑 Password Protection** – Create and manage passwords directly from Home and Settings pages.
+* **🤖 AI Enhancements**
+
+  * “Convert to To-do List” and “Summarize” commands.
+  * Long-press AI messages to copy or save as a note.
+  * Markdown support for AI messages.
+  * AI dialogs now preserve note ID & type, with improved layouts.
+* **📄 Markdown Note Support** – Replaced rich text editor with markdown-based editing in bottom sheets.
+* **📊 Subscription & Limit Management** – Fetch AI usage limits from Firestore based on subscription type; display subscription type in settings with localization.
+
+---
+
+### 🎨 UI & UX Improvements
+
+* Async handling & mounted checks in note editing and saving flows (#54).
+* Improved AI page app bar with better title layout and tooltips.
+* App version displayed on splash screen (#51) and in the About dialog.
+* Localization improvements for typing indicators, AI usage limits, note creation, and message actions.
+
+---
+
+### 🐞 Bug Fixes (with Issue References)
+
+* **fix #54** – Remove debug print statements from note editing/saving & improve process with async handling and mounted checks.
+* **fix #55** – Enhance AI features dialog by preserving note ID/type and updating rich description.
+* **fixes #56, fixes #57** – Refactor NotiaAIPage layout for improved readability & consistency.
+* **fix #53** – Add biometric authentication support with localization (English/Turkish).
+* **fix #52** – Implement password protection dialog and functionality in home/settings pages.
+* **fix #51** – Display app version on splash screen.
+* **fix #48** – Add edit functionality to notes with bottom sheet support.
+* **fix #47** – Refactor AI features dialog for improved readability and functionality, including limit checks and enhanced telemetry logging.
+* **fix #45** – Add web support for Firebase options and improve initialization handling.
+* Fixed – Correct application label casing in AndroidManifest.xml.
+* Fixed – AI usage limit dialog message clarity and localization.
+* Fixed – Update Firestore document reference for AI limits.
+* Fixed – Removed unused imports and plugins, cleaned localization file formatting.
+
+---
+
+### 🔧 Technical & Internal Changes
+
+* Removed unused Flutter plugins and imports.
+* Added user ID to API requests for AI interaction tracking.
+* Standardized formatting across localization files.
+* Updated Gradle & Java dependencies where needed.
+
+---
+
+### 🚧 Known Limitations
+
+* AI recommendation & summarization engine still under tuning — results may vary for complex inputs.
+* Minor delays possible when opening notes with large photo sets.
+
+
+
 # 🔖 **v1.0.8 – Smart AI, Privacy-First & Cleaner Interface**
 
 **(07 August 2025)**
