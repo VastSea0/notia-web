@@ -37,7 +37,7 @@ const HowItWorks = () => {
             How Notia Works
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Experience the full power of AI-enhanced photo journaling in four simple steps with Notia v1.0.7-Alpha.
+            Experience the full power of AI-enhanced photo journaling in four simple steps with Notia v1.0.9-Alpha (Pre-Beta).
           </p>
         </div>
 
