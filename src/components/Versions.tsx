@@ -30,6 +30,42 @@ const lastUpdated = "August 12, 2025";
 // Changelog data parsed from CHANGELOG.md
 const changelogVersions = [
   {
+    version: "v1.0.9-Alpha (Pre-Beta)",
+    title: "Security, AI Enhancements & Stability",
+    date: "August 12, 2025",
+    description: "This release strengthens security, enriches AI-powered features, and improves the overall stability of Notia. Now you can protect your workspace with biometric and password authentication while enjoying smarter, more versatile AI interactions.",
+    features: [
+      "🔐 Biometric Authentication: Fingerprint login support with full English & Turkish localization.",
+      "🔑 Password Protection: Create and manage passwords directly from Home and Settings pages.",
+      "🤖 AI Enhancements: 'Convert to To-do List' and 'Summarize' commands with long-press support for copying or saving AI messages as notes.",
+      "📝 Markdown Support: AI messages now support markdown formatting for better readability.",
+      "📄 Markdown Note Support: Replaced rich text editor with markdown-based editing in bottom sheets.",
+      "📊 Subscription & Limit Management: Fetch AI usage limits from Firestore based on subscription type with localized display in settings."
+    ],
+    improvements: [
+      "🔄 Async handling & mounted checks in note editing and saving flows (#54).",
+      "🎨 Improved AI page app bar with better title layout and tooltips.",
+      "📱 App version displayed on splash screen (#51) and in the About dialog.",
+      "🌍 Localization improvements for typing indicators, AI usage limits, note creation, and message actions.",
+      "🧠 AI dialogs now preserve note ID & type, with improved layouts and enhanced functionality."
+    ],
+    bugFixes: [
+      "✅ Fixed #54: Remove debug print statements from note editing/saving & improve process with async handling and mounted checks",
+      "✅ Fixed #55: Enhance AI features dialog by preserving note ID/type and updating rich description",
+      "✅ Fixed #56, #57: Refactor NotiaAIPage layout for improved readability & consistency",
+      "✅ Fixed #53: Add biometric authentication support with localization (English/Turkish)",
+      "✅ Fixed #52: Implement password protection dialog and functionality in home/settings pages",
+      "✅ Fixed #51: Display app version on splash screen",
+      "✅ Fixed #48: Add edit functionality to notes with bottom sheet support",
+      "✅ Fixed #47: Refactor AI features dialog for improved readability and functionality, including limit checks and enhanced telemetry logging",
+      "✅ Fixed #45: Add web support for Firebase options and improve initialization handling",
+      "🧼 Correct application label casing in AndroidManifest.xml",
+      "💬 AI usage limit dialog message clarity and localization improvements",
+      "🔄 Updated Firestore document reference for AI limits",
+      "🧹 Removed unused imports and plugins, cleaned localization file formatting"
+    ]
+  },
+  {
     version: "v1.0.8-Alpha",
     title: "Smart AI, Privacy-First & Cleaner Interface",
     date: "August 7, 2025",
