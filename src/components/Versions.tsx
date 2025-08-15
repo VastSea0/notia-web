@@ -207,6 +207,41 @@ const changelogVersions = [
 
 const features = [
   {
+    icon: Lock,
+    title: 'Biometric Authentication',
+    description: 'Fingerprint login support with full English & Turkish localization for enhanced security.',
+    status: 'available',
+    version: 'v1.0.9'
+  },
+  {
+    icon: Lock,
+    title: 'Password Protection',
+    description: 'Create and manage passwords directly from Home and Settings pages to secure your workspace.',
+    status: 'available',
+    version: 'v1.0.9'
+  },
+  {
+    icon: Brain,
+    title: 'Enhanced AI Commands',
+    description: 'Convert to To-do List and Summarize commands with long-press support for copying or saving AI messages.',
+    status: 'available',
+    version: 'v1.0.9'
+  },
+  {
+    icon: Edit3,
+    title: 'Markdown Note Support',
+    description: 'Replaced rich text editor with markdown-based editing in bottom sheets for better formatting.',
+    status: 'available',
+    version: 'v1.0.9'
+  },
+  {
+    icon: BarChart3,
+    title: 'Subscription & Limit Management',
+    description: 'Fetch AI usage limits from Firestore based on subscription type with localized display.',
+    status: 'available',
+    version: 'v1.0.9'
+  },
+  {
     icon: MessageSquare,
     title: 'NotiaAI Chat Page',
     description: 'Access a brand-new chat interface with personality selection and chat history management.',
