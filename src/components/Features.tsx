@@ -6,24 +6,14 @@ import {
   Archive,
   Globe,
   RefreshCw,
-  Download,
-  Heart,
-  Search,
-  Smartphone
+  Lock
 } from 'lucide-react';
 
 const features = [
   {
     icon: Brain,
-    title: 'AI-Powered Suggestions',
-    description: 'Context-aware tag suggestions and summary generation with localized UI, powered by GitHub Models (GPT-4.1).',
-    available: true,
-    highlight: true
-  },
-  {
-    icon: Edit3,
-    title: 'Rich Text Notes',
-    description: 'Use bold, italic, lists, and embedded images in your notes. Make your stories more expressive and customizable.',
+    title: 'NotiaAI Chat',
+    description: 'Intelligent conversational AI assistant for photo analysis, note generation, and smart suggestions powered by GitHub Models (GPT-4.1).',
     available: true,
     highlight: true
   },
@@ -33,6 +23,37 @@ const features = [
     description: 'Get dynamic AI suggestions like "summarize this" or "suggest a title" directly on photo details.',
     available: true,
     highlight: true
+  },
+  {
+    icon: Brain,
+    title: 'AI-Powered Suggestions',
+    description: 'Context-aware tag suggestions and summary generation with localized UI, powered by GitHub Models (GPT-4.1).',
+    available: true,
+    highlight: true
+  },
+  {
+    icon: Edit3,
+    title: 'Markdown Note Support',
+    description: 'Replaced rich text editor with markdown-based editing in bottom sheets for better formatting and readability.',
+    available: true,
+  },
+  {
+    icon: Lock,
+    title: 'Password Protection',
+    description: 'Create and manage passwords directly from Home and Settings pages to secure your workspace and data.',
+    available: true,
+  },
+  {
+    icon: Lock,
+    title: 'Biometric Authentication',
+    description: 'Fingerprint login support with full English & Turkish localization for enhanced security and privacy.',
+    available: true,
+  },
+  {
+    icon: Edit3,
+    title: 'Rich Text Notes',
+    description: 'Use bold, italic, lists, and embedded images in your notes. Make your stories more expressive and customizable.',
+    available: true
   },
   {
     icon: Archive,
@@ -51,30 +72,6 @@ const features = [
     title: 'Pull-to-Refresh',
     description: 'Swipe down on HomePage or NotesPage to instantly refresh content with smooth animations.',
     available: true
-  },
-  {
-    icon: Download,
-    title: 'Export & Import System',
-    description: 'Cross-platform backup and restore functionality for Android, Linux, and Windows.',
-    available: true
-  },
-  {
-    icon: Heart,
-    title: 'Favorites & Filtering',
-    description: 'Add notes to favorites, filter by favorites, and organize your most important memories.',
-    available: true
-  },
-  {
-    icon: Search,
-    title: 'Smart Search & Filtering',
-    description: 'Powerful search tools with subfolder detection and tag-based filtering capabilities.',
-    available: true
-  },
-  {
-    icon: Smartphone,
-    title: 'Mobile-First Design',
-    description: 'Intuitive Material 3 design optimized for mobile devices with dark mode support.',
-    available: true
   }
 ];
 
@@ -87,7 +84,7 @@ const Features = () => {
             Powerful Features
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover why Notia v1.0.7-Alpha is the smartest way to turn your photos into meaningful stories with AI-powered insights.
+            Discover why Notia v1.0.9-Alpha (Pre-Beta) is the smartest way to turn your photos into meaningful stories with AI-powered insights and enhanced security.
           </p>
         </div>
 
@@ -131,7 +128,7 @@ const Features = () => {
             <span>Powered by GitHub Models (GPT-4.1)</span>
           </div>
           <p className="text-gray-600 mt-3 text-sm">
-            Experience the future of photo journaling with intelligent, context-aware AI assistance.
+            Experience the future of photo journaling with intelligent, context-aware AI assistance and enhanced security features.
           </p>
         </div>
       </div>
