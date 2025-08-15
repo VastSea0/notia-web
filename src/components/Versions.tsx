@@ -24,8 +24,8 @@ import {
 import Header from './Header';
 import Footer from './Footer';
 
-const currentVersion = "v1.0.8-Alpha";
-const lastUpdated = "August 7, 2025";
+const currentVersion = "v1.0.9-Alpha (Pre-Beta)";
+const lastUpdated = "August 12, 2025";
 
 // Changelog data parsed from CHANGELOG.md
 const changelogVersions = [
