@@ -4,9 +4,12 @@ import Home from './components/Home';
 import Privacy from './components/Privacy';
 import Versions from './components/Versions';
 import Pricing from './components/Pricing';
+
 function App() {
+  const baseName = (import.meta.env.BASE_URL || '/').replace(/\/$/, '') || '/';
+
   return (
-    <Router>
+    <Router basename={baseName === '/' ? undefined : baseName}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/privacy" element={<Privacy />} />

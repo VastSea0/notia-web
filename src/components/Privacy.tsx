@@ -19,7 +19,7 @@ const Privacy = () => {
             <div className="h-5 w-px bg-slate-300"></div>
             <div className="flex items-center space-x-3">
               <img
-                src="/assets/app_icon.png"
+                src={`${import.meta.env.BASE_URL}assets/app_icon.png`}
                 alt="Notia Logo"
                 className="h-8 w-8 rounded-lg border border-slate-200"
               />

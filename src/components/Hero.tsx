@@ -10,7 +10,7 @@ const Hero = () => {
   const appFeatures = [
     {
       id: 1,
-      image: "/assets/image-1.png",
+      image: `${import.meta.env.BASE_URL}assets/image-1.png`,
       title: "Chat with NotiaAI",
       description: "Have intelligent conversations with NotiaAI. Get help, ideas, and insights for your daily journaling.",
       badge: "NotiaAI Chat",
@@ -19,7 +19,7 @@ const Hero = () => {
     },
     {
       id: 2,
-      image: "/assets/image-2.png",
+      image: `${import.meta.env.BASE_URL}assets/image-2.png`,
       title: "Add Notes to Photos",
       description: "Transform your photos into meaningful memories by adding notes and describing your day.",
       badge: "Photo Gallery",
@@ -28,7 +28,7 @@ const Hero = () => {
     },
     {
       id: 3,
-      image: "/assets/image-3.png",
+      image: `${import.meta.env.BASE_URL}assets/image-3.png`,
       title: "Perfect Notes with AI",
       description: "Create perfect notes with NotiaAI assistance or write manually with smart tags and organization.",
       badge: "Note Creation",
@@ -37,7 +37,7 @@ const Hero = () => {
     },
     {
       id: 4,
-      image: "/assets/image-4.png",
+      image: `${import.meta.env.BASE_URL}assets/image-4.png`,
       title: "Improve Notes with AI",
       description: "Enhance your notes with AI suggestions, get automatic tags, or improve writing style instantly.",
       badge: "AI Enhancement",
@@ -46,7 +46,7 @@ const Hero = () => {
     },
     {
       id: 5,
-      image: "/assets/image-5.png",
+      image: `${import.meta.env.BASE_URL}assets/image-5.png`,
       title: "Customize AI Personality",
       description: "Choose NotiaAI's personality and tone - inspiring, Gen Z, analytical, or whatever fits your style.",
       badge: "AI Personality",
@@ -55,7 +55,7 @@ const Hero = () => {
     },
     {
       id: 6,
-      image: "/assets/image-6.png",
+      image: `${import.meta.env.BASE_URL}assets/image-6.png`,
       title: "All Your Notes",
       description: "View all your created notes in one place, organize them perfectly, or create new memories instantly.",
       badge: "Notes View",

@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
               <img
-                src="/assets/app_icon.png"
+                src={`${import.meta.env.BASE_URL}assets/app_icon.png`}
                 alt="Notia Logo"
                 className="h-9 w-9 rounded-xl border border-slate-600 shadow-sm"
               />
