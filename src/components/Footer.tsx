@@ -14,27 +14,49 @@ const Footer = () => {
                 alt="Notia Logo"
                 className="h-9 w-9 rounded-xl border border-slate-600 shadow-sm"
               />
-              <span className="text-xl font-semibold">Notia</span>
+              <span className="text-xl font-bold">Notia</span>
+              <span className="text-xs bg-orange-500/20 text-orange-400 border border-orange-500/30 px-2 py-0.5 rounded-full font-medium">v1.3.0</span>
             </div>
-            <p className="text-slate-400 leading-relaxed max-w-md mb-4">
-              Turn your photo gallery into a personal storybook. Every picture holds a memory, and Notia helps you capture, save, and relive them—whenever you want.
+            <p className="text-slate-400 leading-relaxed max-w-md mb-4 text-sm">
+              Fotoğraf galerilerini kişisel bir hikaye kitabına dönüştürün. Her fotoğraf bir anı barındırır, Notia bu anıları yakalamanızı, zenginleştirmenizi ve ölümsüzleştirmenizi sağlar.
             </p>
-            <div className="flex items-center space-x-2 text-sm text-slate-400">
-              <span>Made with</span>
-              <Heart className="h-4 w-4 text-orange-400 fill-current" />
-              <span>by Egehan KAHRAMAN (VastSea)</span>
+            <div className="flex items-center space-x-2 text-xs text-slate-400">
+              <span>Geliştirici:</span>
+              <Heart className="h-3.5 w-3.5 text-orange-500 fill-current" />
+              <a href="https://egehankahraman.vercel.app" className="text-slate-300 hover:text-orange-400 underline transition-colors">
+                Egehan Kahraman (VastSea)
+              </a>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Links</h3>
-            <ul className="space-y-3 text-slate-400">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-slate-300 mb-4">Bağlantılar</h3>
+            <ul className="space-y-2.5 text-sm text-slate-400">
+              <li>
+                <a
+                  href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-400 transition-colors flex items-center gap-1.5 font-medium text-slate-300"
+                >
+                  <span>Google Play Store</span>
+                  <span className="text-[10px] bg-emerald-900 text-emerald-300 px-1.5 py-0.2 rounded">Yayında</span>
+                </a>
+              </li>
               <li>
                 <Link
                   to="/versions"
                   className="hover:text-white transition-colors"
                 >
-                  Version Info
+                  Sürüm Geçmişi (v1.3.0)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/pricing"
+                  className="hover:text-white transition-colors"
+                >
+                  Fiyatlandırma & Pro Lisans
                 </Link>
               </li>
               <li>
@@ -42,25 +64,17 @@ const Footer = () => {
                   to="/privacy"
                   className="hover:text-white transition-colors"
                 >
-                  Privacy Policy
+                  Gizlilik Politikası (GDPR)
                 </Link>
               </li>
               <li>
                 <a
-                  href="https://instagram.com/crusttaceans"
+                  href="https://github.com/VastSea0/notia"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  Instagram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:vastseaoffical0@outlook.com"
-                  className="hover:text-white transition-colors"
-                >
-                  Email Support
+                  GitHub Deposu ↗
                 </a>
               </li>
             </ul>
@@ -68,12 +82,12 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-slate-800 pt-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-slate-400 text-sm">
-              © 2025 Notia by Egehan KAHRAMAN. All rights reserved.
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs text-slate-500">
+            <div>
+              © 2026 Notia by Egehan KAHRAMAN. Tüm hakları saklıdır.
             </div>
-            <div className="text-slate-400 text-sm">
-              Notia – Capture Moments, Preserve Memories
+            <div>
+              Notia – Anılarını Yakala, Hikayeni Yaşat
             </div>
           </div>
         </div>
