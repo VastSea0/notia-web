@@ -1,347 +1,277 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { 
-  Crown, 
-  Zap, 
-  Star, 
+  Sparkles, 
   Check, 
-  X,
-  Gift,
-  ArrowLeft,
-  Sparkles,
-  MessageSquare,
-  Edit3,
-  Users,
-  Globe,
-  Shield
+  X, 
+  Shield, 
+  Smartphone, 
+  Infinity,
+  Zap,
+  ExternalLink 
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 
 const Pricing = () => {
-  const [selectedPlan, setSelectedPlan] = useState('plus');
-  const [exchangeRate, setExchangeRate] = useState(40); // Default fallback
-  const [isLoadingRate, setIsLoadingRate] = useState(true);
-
-  // Fetch current USD to TRY exchange rate
-  useEffect(() => {
-    const fetchExchangeRate = async () => {
-      try {
-        // Using a free exchange rate API
-        const response = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
-        const data = await response.json();
-        
-        if (data.rates && data.rates.TRY) {
-          setExchangeRate(Math.round(data.rates.TRY * 100) / 100); // Round to 2 decimal places
-        }
-      } catch (error) {
-        console.warn('Failed to fetch exchange rate, using default:', error);
-        // Keep the default rate of 40
-      } finally {
-        setIsLoadingRate(false);
-      }
-    };
-
-    fetchExchangeRate();
-  }, []);
-  const plans = [
-    {
-      id: 'basic',
-      name: 'Basic',
-      price: `${Math.round(0 * exchangeRate)}₺`,
-      priceUSD: 'Free',
-      period: 'Forever',
-      aiLimit: '20 / day',
-      aiLimitDetails: '10 AI Notes + 10 Chat',
-      ads: true,
-      target: 'Students & Casual Users',
-      popular: false,
-      features: [
-        'Daily 10 AI-powered note suggestions',
-        'Daily 10 NotiaAI chat messages',
-        'Basic photo note creation',
-        'Local storage (unlimited)',
-        'Export/import functionality',
-        'Basic customization',
-        'Community support'
-      ],
-      limitations: [
-        'Ad-supported experience',
-        'Limited AI interactions',
-        'Basic support only'
-      ]
-    },
-    {
-      id: 'plus',
-      name: 'Plus',
-      price: `${Math.round(1 * exchangeRate)}₺`,
-      priceUSD: '$1',
-      period: 'per month',
-      aiLimit: '80 / day',
-      aiLimitDetails: '30 AI Notes + 50 Chat',
-      ads: false,
-      target: 'Active users',
-      popular: true,
-      features: [
-        'Daily 30 AI-enhanced note creation',
-        'Daily 50 NotiaAI chat interactions',
-        'Ad-free experience',
-        'Priority AI response speed',
-        'Advanced photo organization',
-        'Custom AI personality settings',
-        'Premium themes & customization',
-        'Email support (24h response)'
-      ],
-      limitations: []
-    },
-    {
-      id: 'pro',
-      name: 'Pro',
-      price: `${Math.round(2.5 * exchangeRate)}₺`,
-      priceUSD: '$2.5',
-      period: 'per month',
-      aiLimit: 'Unlimited',
-      aiLimitDetails: 'Unlimited AI usage',
-      ads: false,
-      target: 'Power users & Content creators',
-      popular: false,
-      features: [
-        'Unlimited AI note creation',
-        'Unlimited NotiaAI chat',
-        'Priority processing & fastest AI',
-        'Beta feature early access',
-        'Advanced analytics & insights',
-        'Custom AI model preferences',
-        'Multiple account sync',
-        'API access (coming soon)',
-        'Priority support (2h response)',
-        'Feature request priority'
-      ],
-      limitations: []
-    }
-  ];
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50/30 to-orange-100/20">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-md border-b border-slate-200/60 sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <Link
-                to="/"
-                className="flex items-center space-x-2 text-slate-600 hover:text-orange-600 transition-colors"
-              >
-                <ArrowLeft className="h-5 w-5" />
-                <span className="font-medium">Back to Home</span>
-              </Link>
-              <div className="h-5 w-px bg-slate-300"></div>
-              <div className="flex items-center space-x-3">
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/app_icon.png`}
-                  alt="Notia Logo"
-                  className="h-8 w-8 rounded-lg border border-slate-200"
-                />
-                <span className="text-lg font-semibold text-slate-900">Notia Pricing</span>
-              </div>
-            </div>
-            <div className="text-sm text-slate-500">
-              {isLoadingRate ? (
-                <span className="animate-pulse">Loading rate...</span>
-              ) : (
-                `1 USD = ${exchangeRate}₺ TRY`
-              )}
-            </div>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
+      <Header />
 
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full space-y-16">
         
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl mx-auto mb-8">
-            <Crown className="h-10 w-10 text-white" />
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Notia Pro Seçenekleri
           </div>
-          <h1 className="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-6">
-            Choose Your Notia
-            <span className="text-orange-600 block">Experience</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
+            Anılarınız İçin En Uygun Planı Seçin
           </h1>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Transform your memories with AI-powered storytelling. Pick the plan that fits your creative journey.
+          <p className="text-base text-slate-600 leading-relaxed">
+            Fotoğraf notlama, Markdown ve harita özellikleri daima ücretsizdir. Sınırsız NotiaAI, reklamsız deneyim ve bulut senkronizasyonu için Pro ayrıcalıklarını keşfedin.
           </p>
         </div>
 
-        {/* Beta Reward Banner */}
-        <div className="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl p-6 mb-12 border border-emerald-200">
-          <div className="flex items-center justify-center space-x-4">
-            <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
-              <Gift className="h-6 w-6 text-white" />
-            </div>
-            <div className="text-center">
-              <h3 className="text-xl font-bold text-emerald-900 mb-2">🎁 Beta Katılımcısı Ödülü</h3>
-              <p className="text-emerald-700">
-                <strong>August-September 2025</strong> arası ilk kez indiren herkese <strong>1 hafta Plus ücretsiz!</strong>
-              </p>
-              <p className="text-sm text-emerald-600 mt-1">
-                Sınırsız AI özellikleri • Reklamsız deneyim • Öncelikli destek
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
-          {plans.map((plan) => (
-            <div
-              key={plan.id}
-              className={`relative bg-white/80 backdrop-blur-sm rounded-3xl border-2 shadow-lg p-8 transition-all duration-300 hover:shadow-xl ${
-                plan.popular 
-                  ? 'border-orange-300 scale-105 bg-gradient-to-br from-orange-50/50 to-white' 
-                  : 'border-slate-200/60 hover:border-orange-200'
-              } ${
-                selectedPlan === plan.id ? 'ring-2 ring-orange-400' : ''
-              }`}
-              onClick={() => setSelectedPlan(plan.id)}
-            >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                    <Star className="h-4 w-4 inline mr-1" />
-                    Most Popular
-                  </div>
-                </div>
-              )}
-
-              {/* Plan Header */}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">{plan.name}</h3>
-                <div className="flex items-baseline justify-center space-x-2 mb-2">
-                  <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
-                  <span className="text-lg text-slate-500">{plan.period}</span>
-                </div>
-                <div className="text-slate-600 text-sm mb-3">{plan.priceUSD}</div>
-                
-                {/* AI Limit Badge */}
-                <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium ${
-                  plan.id === 'basic' ? 'bg-gray-100 text-gray-700' :
-                  plan.id === 'plus' ? 'bg-orange-100 text-orange-700' :
-                  'bg-purple-100 text-purple-700'
-                }`}>
-                  <Zap className="h-4 w-4 mr-2" />
-                  {plan.aiLimit}
-                </div>
-                <div className="text-xs text-slate-500 mt-1">{plan.aiLimitDetails}</div>
-                
-                {/* Target Audience */}
-                <div className="mt-4 text-sm text-slate-600 bg-slate-50 px-3 py-1 rounded-full inline-block">
-                  <Users className="h-3 w-3 inline mr-1" />
-                  {plan.target}
-                </div>
-              </div>
-
-              {/* Features List */}
-              <div className="space-y-4 mb-8">
-                <h4 className="font-semibold text-slate-900 flex items-center">
-                  <Check className="h-4 w-4 text-green-500 mr-2" />
-                  Features
-                </h4>
-                <ul className="space-y-2">
-                  {plan.features.map((feature, index) => (
-                    <li key={index} className="flex items-start space-x-2 text-sm text-slate-600">
-                      <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Limitations */}
-                {plan.limitations.length > 0 && (
-                  <div className="mt-6">
-                    <h4 className="font-semibold text-slate-900 flex items-center">
-                      <X className="h-4 w-4 text-red-500 mr-2" />
-                      Limitations
-                    </h4>
-                    <ul className="space-y-2 mt-2">
-                      {plan.limitations.map((limitation, index) => (
-                        <li key={index} className="flex items-start space-x-2 text-sm text-slate-500">
-                          <X className="h-4 w-4 text-red-400 mt-0.5 flex-shrink-0" />
-                          <span>{limitation}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-
-              {/* CTA Button */}
-              <button
-                className={`w-full py-3 px-6 rounded-2xl font-semibold transition-all duration-200 ${
-                  plan.id === 'basic'
-                    ? 'bg-slate-600 hover:bg-slate-700 text-white'
-                    : plan.id === 'plus'
-                    ? 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-lg'
-                    : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white shadow-lg'
-                }`}
-              >
-                {plan.id === 'basic' ? 'Download Free' : `Upgrade to ${plan.name}`}
-              </button>
-            </div>
-          ))}
-        </div>
-
-        {/* Feature Comparison */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-slate-200/60 shadow-sm p-8 mb-12">
-          <h2 className="text-3xl font-serif font-bold text-slate-900 mb-8 text-center">
-            Feature Comparison
-          </h2>
+        {/* 4 Pricing Cards Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           
+          {/* 1. Ücretsiz */}
+          <div className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-bold text-slate-900">Ücretsiz Başlangıç</h3>
+                <p className="text-xs text-slate-500 mt-0.5">Temel fotoğraf notlama</p>
+              </div>
+              <div className="text-3xl font-black text-slate-900 font-mono">
+                Ücretsiz
+              </div>
+              <ul className="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-100">
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Sınırsız fotoğraf notu & Markdown</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>İnteraktif fotoğraf haritası</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Biyometrik kilit & AES-256</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-orange-500 shrink-0" />
+                  <span>Günlük 20 NotiaAI isteği</span>
+                </li>
+              </ul>
+            </div>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full text-center py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-semibold transition-colors"
+            >
+              Google Play'den Yükle
+            </a>
+          </div>
+
+          {/* 2. Pro Aylık */}
+          <div className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-bold text-slate-900">Pro Aylık</h3>
+                <p className="text-xs text-slate-500 mt-0.5">Esnek aylık abonelik</p>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl font-black text-slate-900 font-mono">₺49.99</span>
+                <span className="text-xs text-slate-500">/ ay</span>
+              </div>
+              <ul className="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-100">
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Tamamen reklamsız</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-orange-500 shrink-0" />
+                  <span>Sınırsız NotiaAI asistanı</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Öncelikli yanıt hızı</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Bulut senkronizasyonu</span>
+                </li>
+              </ul>
+            </div>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full text-center py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-colors"
+            >
+              Uygulamada Başlat
+            </a>
+          </div>
+
+          {/* 3. Pro Yıllık (En Popüler) */}
+          <div className="bg-gradient-to-b from-orange-50/60 to-white rounded-3xl p-7 border-2 border-orange-500 shadow-xl relative flex flex-col justify-between space-y-6">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className="bg-orange-600 text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
+                En Popüler Plan
+              </span>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-bold text-slate-900">Pro Yıllık</h3>
+                <p className="text-xs text-orange-800 font-medium mt-0.5">Aylık ~₺37.50 (Yıllık Tasarruf)</p>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl font-black text-slate-900 font-mono">₺449.99</span>
+                <span className="text-xs text-slate-500">/ yıl</span>
+              </div>
+              <ul className="space-y-2.5 text-xs text-slate-700 pt-3 border-t border-orange-200/80 font-medium">
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Tamamen reklamsız</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-orange-600 shrink-0" />
+                  <span>Sınırsız NotiaAI kullanımı</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Öncelikli yapay zekâ hızı</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Drive & bulut yedekleme</span>
+                </li>
+              </ul>
+            </div>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full text-center py-2.5 bg-orange-600 hover:bg-orange-700 text-white rounded-xl text-xs font-semibold transition-colors shadow-sm"
+            >
+              Yıllık Pro'ya Geç
+            </a>
+          </div>
+
+          {/* 4. Pro Ömür Boyu */}
+          <div className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-bold text-slate-900">Ömür Boyu (Lifetime)</h3>
+                <p className="text-xs text-slate-500 mt-0.5">Tek seferlik kalıcı lisans</p>
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl font-black text-slate-900 font-mono">₺799.99</span>
+                <span className="text-xs text-slate-500">tek sefer</span>
+              </div>
+              <ul className="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-100">
+                <li className="flex items-center gap-2">
+                  <Infinity className="h-4 w-4 text-purple-600 shrink-0" />
+                  <span>Ömür boyu kalıcı lisans</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Tüm Pro ayrıcalıkları</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Gelecek güncellemelere erişim</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Sıfır tekrar eden ödeme</span>
+                </li>
+              </ul>
+            </div>
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full text-center py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-colors"
+            >
+              Ömür Boyu Lisans Al
+            </a>
+          </div>
+
+        </div>
+
+        {/* Feature Comparison Table */}
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+          <h2 className="text-xl font-bold text-slate-900 text-center">
+            Detaylı Özellik Karşılaştırması
+          </h2>
+
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full text-left text-xs sm:text-sm">
               <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="text-left py-4 px-4 font-semibold text-slate-900">Features</th>
-                  <th className="text-center py-4 px-4 font-semibold text-slate-600">Basic</th>
-                  <th className="text-center py-4 px-4 font-semibold text-orange-600">Plus</th>
-                  <th className="text-center py-4 px-4 font-semibold text-purple-600">Pro</th>
+                <tr className="border-b border-slate-200 text-slate-500">
+                  <th className="py-3.5 px-4 font-semibold">Özellik</th>
+                  <th className="py-3.5 px-4 font-semibold text-center">Ücretsiz</th>
+                  <th className="py-3.5 px-4 font-semibold text-center">Pro Aylık</th>
+                  <th className="py-3.5 px-4 font-semibold text-center text-orange-600">Pro Yıllık</th>
+                  <th className="py-3.5 px-4 font-semibold text-center text-purple-600">Ömür Boyu</th>
                 </tr>
               </thead>
-              <tbody className="text-sm">
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4 font-medium">AI Note Creation (daily)</td>
-                  <td className="text-center py-3 px-4">10</td>
-                  <td className="text-center py-3 px-4">30</td>
-                  <td className="text-center py-3 px-4">∞</td>
+              <tbody className="divide-y divide-slate-100 text-slate-700">
+                <tr>
+                  <td className="py-3.5 px-4 font-medium">Fotoğraf Notlama & Zengin Markdown</td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4 font-medium">NotiaAI Chat (daily)</td>
-                  <td className="text-center py-3 px-4">10</td>
-                  <td className="text-center py-3 px-4">50</td>
-                  <td className="text-center py-3 px-4">∞</td>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium">İnteraktif Fotoğraf Haritası & EXIF</td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4 font-medium">Ads</td>
-                  <td className="text-center py-3 px-4"><X className="h-4 w-4 text-red-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><Check className="h-4 w-4 text-green-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><Check className="h-4 w-4 text-green-500 mx-auto" /></td>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium">Kişi Etiketleme & Albüm Galerisi</td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4 font-medium">Priority AI Speed</td>
-                  <td className="text-center py-3 px-4"><X className="h-4 w-4 text-red-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><Check className="h-4 w-4 text-green-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><Sparkles className="h-4 w-4 text-purple-500 mx-auto" /></td>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium">Biyometrik Kilit & AES-256 Yerel Şifreleme</td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4 font-medium">Custom AI Personality</td>
-                  <td className="text-center py-3 px-4"><X className="h-4 w-4 text-red-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><Check className="h-4 w-4 text-green-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><Check className="h-4 w-4 text-green-500 mx-auto" /></td>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium">NotiaAI Görsel Asistan & Sohbet</td>
+                  <td className="text-center py-3.5 px-4 font-medium text-slate-500">20 istek / gün</td>
+                  <td className="text-center py-3.5 px-4 font-bold text-slate-900">Sınırsız</td>
+                  <td className="text-center py-3.5 px-4 font-bold text-orange-600">Sınırsız</td>
+                  <td className="text-center py-3.5 px-4 font-bold text-purple-600">Sınırsız</td>
                 </tr>
-                <tr className="border-b border-slate-100">
-                  <td className="py-3 px-4 font-medium">Beta Features</td>
-                  <td className="text-center py-3 px-4"><X className="h-4 w-4 text-red-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><X className="h-4 w-4 text-red-500 mx-auto" /></td>
-                  <td className="text-center py-3 px-4"><Check className="h-4 w-4 text-green-500 mx-auto" /></td>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium">Reklamsız Deneyim</td>
+                  <td className="text-center py-3.5 px-4 text-slate-400">—</td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                </tr>
+                <tr>
+                  <td className="py-3.5 px-4 font-medium">Google Drive & Bulut Senkronizasyon</td>
+                  <td className="text-center py-3.5 px-4 text-slate-400">—</td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
+                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
                 </tr>
               </tbody>
             </table>
@@ -349,96 +279,48 @@ const Pricing = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="bg-gradient-to-r from-slate-50 to-orange-50/30 rounded-2xl p-8">
-          <h2 className="text-3xl font-serif font-bold text-slate-900 mb-8 text-center">
-            Frequently Asked Questions
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-2">🔄 Can I change plans anytime?</h3>
-                <p className="text-slate-600 text-sm">Yes! Upgrade or downgrade your plan anytime. Changes take effect immediately, and we'll prorate the billing.</p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-2">🌍 Which countries is this available in?</h3>
-                <p className="text-slate-600 text-sm">Notia is available globally! Pricing shown in Turkish Lira (₺) and US Dollars ($) for convenience.</p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-2">📱 Do I need internet for basic features?</h3>
-                <p className="text-slate-600 text-sm">No! Photo notes, local storage, and basic functionality work offline. Only AI features require internet.</p>
-              </div>
+        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+          <div className="text-center max-w-xl mx-auto space-y-1">
+            <h2 className="text-xl font-bold text-slate-900">Sıkça Sorulan Sorular</h2>
+            <p className="text-xs text-slate-500">Üyelik ve satın almalar hakkında bilmeniz gerekenler</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 pt-4 text-xs sm:text-sm">
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-900">Ödemeler nasıl güvenceye alınır?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Tüm satın alma işlemleri doğrudan Google Play Store veya Apple App Store altyapısıyla gerçekleştirilir. Notia sunucularında kredi kartı bilgisi tutulmaz.
+              </p>
             </div>
-            
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-2">🎁 What's included in the beta reward?</h3>
-                <p className="text-slate-600 text-sm">1 week of Plus features (80 daily AI interactions, ad-free experience) for early adopters in August-September 2025.</p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-2">🔐 Is my data safe with subscriptions?</h3>
-                <p className="text-slate-600 text-sm">Absolutely! Your photos stay local, and we follow strict privacy policies. Subscription only unlocks AI features.</p>
-              </div>
-              
-              <div>
-                <h3 className="font-semibold text-slate-900 mb-2">💳 What payment methods do you accept?</h3>
-                <p className="text-slate-600 text-sm">Google Play Billing (credit cards, PayPal, Google Pay) and local payment methods in your region.</p>
-              </div>
+
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-900">Ömür Boyu (Lifetime) lisansı nedir?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Tek bir defa ₺799.99 ödeyerek tüm Pro özelliklerine ve gelecekteki güncellemelere kalıcı olarak sahip olursunuz; aylık veya yıllık yenileme ücreti ödemezsiniz.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-900">Aboneliğimi istediğim an iptal edebilir miyim?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Evet. Google Play Store veya App Store hesap ayarlarınızdan aboneliğinizi dilediğiniz an tek tıkla iptal edebilirsiniz.
+              </p>
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="font-bold text-slate-900">Temel özellikler için ödeme yapmam gerekir mi?</h3>
+              <p className="text-slate-600 leading-relaxed">
+                Hayır. Notia'nın fotoğraf notlama, harita, yerel şifreleme ve albüm özellikleri tamamen ücretsizdir.
+              </p>
             </div>
           </div>
         </div>
 
       </main>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <img
-                  src={`${import.meta.env.BASE_URL}assets/app_icon.png`}
-                  alt="Notia Logo"
-                  className="h-8 w-8 rounded-lg"
-                />
-                <span className="text-xl font-bold">Notia</span>
-              </div>
-              <p className="text-slate-400 text-sm">
-                Transform your photos into intelligent stories with AI-powered insights and multilingual support.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Pricing</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li>Basic - Free forever</li>
-                <li>Plus - 40₺/month</li>
-                <li>Pro - 100₺/month</li>
-                <li>Beta reward included</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-semibold mb-4">Support</h4>
-              <ul className="space-y-2 text-sm text-slate-400">
-                <li>vastseaoffical0@outlook.com</li>
-                <li>Privacy Policy</li>
-                <li>Terms of Service</li>
-                <li>Feature Requests</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm text-slate-400">
-            <p>© 2025 Notia by VastSea (Egehan Kahraman). All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
- 
+
 export default Pricing;

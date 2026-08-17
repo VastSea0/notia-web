@@ -1,199 +1,168 @@
-import React, { useEffect, useState } from 'react';
-import { Mail, Instagram, Download, Github, MessageCircle } from 'lucide-react';
+import React from 'react';
+import { 
+  Smartphone,
+  ExternalLink,
+  MessageCircle,
+  Mail,
+  Github,
+  Heart
+} from 'lucide-react';
 
 const Contact = () => {
-  const [apkUrl, setApkUrl] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchLatestRelease() {
-      try {
-        const response = await fetch('https://api.github.com/repos/VastSea0/notia-web/releases/latest');
-        if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
-
-        const data = await response.json();
-        const apkAsset = data.assets.find(a => a.name === 'app-release.apk');
-
-        if (apkAsset) {
-          setApkUrl(apkAsset.browser_download_url);
-        } else {
-          setError('APK not found in latest release');
-        }
-      } catch (err) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchLatestRelease();
-  }, []);
-
   return (
-    <section id="contact" className="py-16 bg-white">
+    <section id="contact" className="py-20 bg-white border-t border-slate-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Get Started with Notia
+        
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+          <div className="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded-full uppercase tracking-wider">
+            İndir & İletişim
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Notia'yı Edinin & Bize Ulaşın
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Ready to turn your photos into stories? Download the latest version or get in touch with our team.
+          <p className="text-sm sm:text-base text-slate-600">
+            Google Play Store üzerinden hemen yükleyebilir; öneri, görüş veya destek talepleriniz için doğrudan bize yazabilirsiniz.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-orange-50 to-orange-100/50 p-6 rounded-2xl border border-orange-200">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Download Notia v1.0.9-Alpha (Pre-Beta)</h3>
-              <p className="text-gray-600 mb-6">
-                Experience the latest AI-powered features with NotiaAI chat, privacy-first design, and enhanced note handling.
-              </p>
-              
-              <div className="space-y-3">
-                <div className="flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm text-gray-600 py-3 px-6 rounded-xl border border-orange-200">
-                  <Download className="h-5 w-5 text-orange-600" />
-                  <span>App Store - Coming Soon</span>
+        <div className="grid lg:grid-cols-12 gap-8 items-start">
+          
+          {/* Left: Download & Social */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* Google Play Card */}
+            <div className="bg-slate-900 text-white rounded-3xl p-8 shadow-xl space-y-5">
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2.5 py-0.5 rounded-full text-xs font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Google Play'de Yayında</span>
                 </div>
-                
-                <div className="flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm text-gray-600 py-3 px-6 rounded-xl border border-orange-200">
-                  <Download className="h-5 w-5 text-orange-600" />
-                  <span>Google Play - Coming Soon</span>
-                </div>
-                
-                {/* Dynamic APK download */}
-                {loading ? (
-                  <button
-                    disabled
-                    className="flex items-center justify-center space-x-3 bg-white/80 backdrop-blur-sm text-gray-600 py-3 px-6 rounded-xl border border-orange-200 cursor-not-allowed w-full"
-                  >
-                    <Download className="h-5 w-5 text-orange-600 animate-spin" />
-                    <span>Loading latest APK...</span>
-                  </button>
-                ) : error ? (
-                  <div className="text-red-600 font-medium px-6 py-3 text-center">
-                    Error loading APK: {error}
-                  </div>
-                ) : (
-                  <a
-                    href={apkUrl}
-                    download
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center space-x-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white py-3 px-6 rounded-xl border border-orange-600 hover:from-orange-600 hover:to-orange-700 transition-all duration-200 w-full font-medium"
-                  >
-                    <Download className="h-5 w-5 text-white" />
-                    <span>Download Android Alpha APK</span>
-                  </a>
-                )}
+                <h3 className="text-2xl font-bold tracking-tight">
+                  Notia Android
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Fotoğraflarınıza hayat verin. Google Play Store üzerinden Notia'yı güvenle yükleyin.
+                </p>
+              </div>
+
+              <a
+                href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-700 text-white py-3.5 px-6 rounded-2xl font-medium text-sm transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+              >
+                <Smartphone className="h-5 w-5" />
+                <span>Google Play Store'dan Yükle</span>
+                <ExternalLink className="h-4 w-4 opacity-80" />
+              </a>
+
+              <div className="pt-2 border-t border-slate-800 text-[11px] text-slate-400 flex items-center justify-between">
+                <span>iOS Sürümü: Hazırlanıyor</span>
+                <span>Otomatik Güncellemeler</span>
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-gray-50 to-orange-50/30 p-6 rounded-2xl border border-orange-100">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Connect with Us</h3>
-              <p className="text-gray-600 mb-4">
-                Follow for updates, tips, and community discussions about Notia.
-              </p>
-              
-              <div className="space-y-3">
-                <a 
-                  href="https://instagram.com/crusttaceans" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-200"
-                >
-                  <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-orange-500 rounded-xl flex items-center justify-center">
-                    <Instagram className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-900">@crusttaceans</div>
-                    <div className="text-sm text-gray-600">Follow on Instagram</div>
-                  </div>
-                </a>
-                
+            {/* Quick Links Card */}
+            <div className="bg-slate-50 rounded-3xl p-6 border border-slate-200/80 space-y-3">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                Geliştirici & Topluluk
+              </h4>
+
+              <div className="space-y-2 text-xs sm:text-sm">
                 <a 
                   href="mailto:vastseaoffical0@outlook.com"
-                  className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-200"
+                  className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-200/60 hover:border-orange-300 transition-colors text-slate-700 font-medium"
                 >
-                  <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-900">Email Support</div>
-                    <div className="text-sm text-gray-600">vastseaoffical0@outlook.com</div>
-                  </div>
+                  <Mail className="h-4 w-4 text-orange-600" />
+                  <span>vastseaoffical0@outlook.com</span>
                 </a>
 
                 <a 
-                  href="https://github.com/VastSea0/notia-web"
+                  href="https://github.com/VastSea0/notia"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 p-3 bg-white/60 backdrop-blur-sm rounded-xl hover:bg-white/80 transition-all duration-200"
+                  className="flex items-center gap-3 p-3 bg-white rounded-xl border border-slate-200/60 hover:border-orange-300 transition-colors text-slate-700 font-medium"
                 >
-                  <div className="w-10 h-10 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center">
-                    <Github className="h-5 w-5 text-white" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-900">GitHub Repository</div>
-                    <div className="text-sm text-gray-600">Source code & releases</div>
-                  </div>
+                  <Github className="h-4 w-4 text-slate-900" />
+                  <span>GitHub Deposu (VastSea0/notia)</span>
                 </a>
               </div>
             </div>
+
           </div>
 
-          <div className="bg-gradient-to-br from-orange-50 to-white p-6 rounded-2xl border border-orange-200">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Have Questions?</h3>
-            <p className="text-gray-600 mb-6">
-              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
-            </p>
-            
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-3 bg-white border border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your name"
-                />
+          {/* Right: Clean Contact Form */}
+          <div className="lg:col-span-7 bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6">
+            <div className="space-y-1">
+              <h3 className="text-xl font-bold text-slate-900">
+                Geri Bildirim veya Soru Gönderin
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500">
+                Uygulama deneyiminiz, hata bildirimleri veya işbirliği için doğrudan bize yazabilirsiniz.
+              </p>
+            </div>
+
+            <form 
+              onSubmit={(e) => {
+                e.preventDefault();
+                window.location.href = 'mailto:vastseaoffical0@outlook.com?subject=Notia%20Geri%20Bildirim';
+              }} 
+              className="space-y-4 text-xs sm:text-sm"
+            >
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <label htmlFor="name" className="font-semibold text-slate-700 block">
+                    Adınız
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    required
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all text-slate-800"
+                    placeholder="Adınız"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label htmlFor="email" className="font-semibold text-slate-700 block">
+                    E-Posta Adresiniz
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    required
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all text-slate-800"
+                    placeholder="eposta@ornek.com"
+                  />
+                </div>
               </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-3 bg-white border border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Enter your email address"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
+
+              <div className="space-y-1">
+                <label htmlFor="message" className="font-semibold text-slate-700 block">
+                  Mesajınız
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  className="w-full px-4 py-3 bg-white border border-orange-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 resize-none"
-                  placeholder="Share your experience or ask a question..."
-                ></textarea>
+                  required
+                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-orange-500 focus:bg-white transition-all text-slate-800 resize-none"
+                  placeholder="Notia hakkında görüş, öneri veya sorunuz..."
+                />
               </div>
-              
-              <a
-                href="mailto:vastseaoffical0@outlook.com"
-                className="w-full inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white py-3 px-6 rounded-xl font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+
+              <button
+                type="submit"
+                className="w-full inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white py-3.5 px-6 rounded-xl font-medium shadow-sm transition-all cursor-pointer"
               >
-                <MessageCircle className="h-4 w-4" />
-                <span>Send Message</span>
-              </a>
+                <MessageCircle className="h-4 w-4 text-orange-400" />
+                <span>Mesaj Gönder (E-Posta)</span>
+              </button>
             </form>
           </div>
+
         </div>
+
       </div>
     </section>
   );

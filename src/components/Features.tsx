@@ -1,136 +1,161 @@
 import React from 'react';
 import { 
-  Brain, 
   Edit3, 
+  MapPin, 
+  Users, 
   Sparkles, 
-  Archive,
-  Globe,
-  RefreshCw,
+  ShieldCheck, 
+  FolderHeart,
+  Globe2,
   Lock
 } from 'lucide-react';
 
-const features = [
+const mainPillars = [
   {
-    icon: Brain,
-    title: 'NotiaAI Chat',
-    description: 'Intelligent conversational AI assistant for photo analysis, note generation, and smart suggestions powered by GitHub Models (GPT-4.1).',
-    available: true,
-    highlight: true
+    icon: Edit3,
+    title: "Zengin Markdown Not Defteri",
+    badge: "Hikaye Anlatımı",
+    badgeColor: "bg-orange-100 text-orange-800",
+    description: "Fotoğraflar sadece birer görsel değil; duyguları ve yaşanmışlıkları barındıran hatıralardır. Başlıklar, kalın/italik vurgular, listeler ve özel etiketlerle fotoğraflarınızı anlamlı hikayelere dönüştürün.",
+    highlights: ["Özel Markdown biçimlendirme", "Google Fonts tipografisi", "Etiket ve kategori filtreleme"]
+  },
+  {
+    icon: MapPin,
+    title: "İnteraktif Fotoğraf Haritası",
+    badge: "Coğrafi Keşif",
+    badgeColor: "bg-emerald-100 text-emerald-800",
+    description: "EXIF konum desteğiyle fotoğraflarınızın çekildiği yerleri dünya haritası üzerinde görselleştirin. Şehir şehir, rota rota gezdiğiniz tüm rotaları interaktif bir seyahat haritasına dönüştürün.",
+    highlights: ["Otomatik EXIF konum çözümleme", "Harita üzeri anı pinleri", "Seyahat ve rota takibi"]
+  },
+  {
+    icon: Users,
+    title: "Kişiler & Buket Koleksiyonları",
+    badge: "Hafıza & Sevdikleriniz",
+    badgeColor: "bg-purple-100 text-purple-800",
+    description: "Fotoğraflarınızdaki sevdiklerinizi etiketleyin, özel kişi profilleri oluşturun ve onlarla geçirdiğiniz anları tek bir dokunuşla derleyin. Tematik buket albümleriyle özel anı koleksiyonları kurun.",
+    highlights: ["Kişi etiketleme ve profilleme", "Buket galerisi & tematik albümler", "Kişi bazlı arama ve filtreleme"]
   },
   {
     icon: Sparkles,
-    title: 'Inline AI Prompts',
-    description: 'Get dynamic AI suggestions like "summarize this" or "suggest a title" directly on photo details.',
-    available: true,
-    highlight: true
-  },
-  {
-    icon: Brain,
-    title: 'AI-Powered Suggestions',
-    description: 'Context-aware tag suggestions and summary generation with localized UI, powered by GitHub Models (GPT-4.1).',
-    available: true,
-    highlight: true
-  },
-  {
-    icon: Edit3,
-    title: 'Markdown Note Support',
-    description: 'Replaced rich text editor with markdown-based editing in bottom sheets for better formatting and readability.',
-    available: true,
-  },
+    title: "NotiaAI Görsel Yaşam Asistanı",
+    badge: "Akıllı Destek",
+    badgeColor: "bg-blue-100 text-blue-800",
+    description: "Fotoğraftan ilham alarak hikaye taslağı oluşturan, duygu durumunu çözümleyen ve günlük yazımınızı kolaylaştıran yapay zekâ asistanı.",
+    highlights: ["Akıllı anı ve başlık önerileri", "Soru-cevap anı sohbeti", "Özetleme ve yapılacak listesi dönüştürücü"]
+  }
+];
+
+const secondaryFeatures = [
   {
     icon: Lock,
-    title: 'Password Protection',
-    description: 'Create and manage passwords directly from Home and Settings pages to secure your workspace and data.',
-    available: true,
+    title: "Biyometrik Kilit & AES-256",
+    desc: "Özel notlarınızı parmak izi, yüz tanıma ve AES-256 yerel şifreleme ile koruma altına alın."
   },
   {
-    icon: Lock,
-    title: 'Biometric Authentication',
-    description: 'Fingerprint login support with full English & Turkish localization for enhanced security and privacy.',
-    available: true,
+    icon: FolderHeart,
+    title: "Yerel Öncelikli (Local-First)",
+    desc: "Fotoğraflarınız cihazınızda kalır; harici sunuculara izniniz dışında asla yüklenmez."
   },
   {
-    icon: Edit3,
-    title: 'Rich Text Notes',
-    description: 'Use bold, italic, lists, and embedded images in your notes. Make your stories more expressive and customizable.',
-    available: true
+    icon: Globe2,
+    title: "5 Dil Desteği",
+    desc: "Türkçe, İngilizce, Almanca, İtalyanca ve Azerbaycan Türkçesi ile eksiksiz yerelleştirme."
   },
   {
-    icon: Archive,
-    title: 'Smart Archiving',
-    description: 'Modern bottom sheet UI with automatic organization and categorization of your photos and stories.',
-    available: true
-  },
-  {
-    icon: Globe,
-    title: 'Multilingual Support',
-    description: 'Fully localized in English, Turkish, Italian, German, and Azerbaijani with real-time language switching.',
-    available: true
-  },
-  {
-    icon: RefreshCw,
-    title: 'Pull-to-Refresh',
-    description: 'Swipe down on HomePage or NotesPage to instantly refresh content with smooth animations.',
-    available: true
+    icon: ShieldCheck,
+    title: "Google Drive & Bulut Senkronizasyon",
+    desc: "Dilerseniz Google Drive veya güvenli bulut üzerinde şifreli yedekleme oluşturun."
   }
 ];
 
 const Features = () => {
   return (
-    <section id="features" className="py-16 bg-white">
+    <section id="features" className="py-20 bg-white border-t border-slate-100">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Powerful Features
+        
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+          <div className="inline-block px-3 py-1 bg-slate-100 text-slate-700 text-xs font-semibold rounded-full uppercase tracking-wider">
+            Temel Yetenekler
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Anılarınızı Yaşatan Dört Ana Sütun
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Discover why Notia v1.0.9-Alpha (Pre-Beta) is the smartest way to turn your photos into meaningful stories with AI-powered insights and enhanced security.
+          <p className="text-base text-slate-600 leading-relaxed">
+            Notia, anılarınızı kaydetmeyi, organize etmeyi ve yeniden keşfetmeyi keyifli hale getiren modern bir araç setidir.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon;
+        {/* 4 Main Feature Cards */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {mainPillars.map((item, idx) => {
+            const IconComp = item.icon;
             return (
               <div 
-                key={index}
-                className={`relative p-6 rounded-2xl border transition-all duration-300 ${
-                  feature.highlight 
-                    ? 'bg-gradient-to-br from-orange-50 to-orange-100/50 border-orange-200 hover:shadow-lg hover:border-orange-300' 
-                    : 'bg-gradient-to-br from-orange-50 to-white border-orange-100 hover:shadow-lg'
-                }`}
+                key={idx}
+                className="bg-slate-50/70 hover:bg-white rounded-3xl p-8 border border-slate-200/80 hover:border-orange-200 transition-all duration-300 hover:shadow-xl flex flex-col justify-between group"
               >
-                {feature.highlight && (
-                  <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs px-2 py-1 rounded-full font-medium">
-                    AI-Powered
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="w-12 h-12 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-center text-orange-600 group-hover:scale-110 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                      <IconComp className="h-6 w-6" />
+                    </div>
+                    <span className={`text-xs font-semibold px-3 py-1 rounded-full ${item.badgeColor}`}>
+                      {item.badge}
+                    </span>
                   </div>
-                )}
-                
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center mb-4">
-                  <IconComponent className="h-6 w-6 text-white" />
+
+                  <h3 className="text-xl font-bold text-slate-900 tracking-tight">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm text-slate-600 leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
-                
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+
+                <div className="pt-6 mt-6 border-t border-slate-200/60">
+                  <ul className="space-y-1.5">
+                    {item.highlights.map((h, hIdx) => (
+                      <li key={hIdx} className="text-xs font-medium text-slate-700 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-orange-500" />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             );
           })}
         </div>
 
-        <div className="mt-12 text-center">
-          <div className="inline-flex items-center space-x-2 bg-orange-100 text-orange-800 px-4 py-2 rounded-full text-sm font-medium">
-            <Brain className="h-4 w-4" />
-            <span>Powered by GitHub Models (GPT-4.1)</span>
+        {/* Supporting Features Grid */}
+        <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-3xl p-8 sm:p-12 text-white shadow-xl">
+          <div className="text-center max-w-xl mx-auto mb-10 space-y-2">
+            <h3 className="text-2xl font-bold tracking-tight">
+              Gizlilik ve Mimari Güvenceleri
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400">
+              Kişisel verileriniz ve anılarınız tamamen sizin kontrolünüzdedir.
+            </p>
           </div>
-          <p className="text-gray-600 mt-3 text-sm">
-            Experience the future of photo journaling with intelligent, context-aware AI assistance and enhanced security features.
-          </p>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {secondaryFeatures.map((sec, idx) => {
+              const SecIcon = sec.icon;
+              return (
+                <div key={idx} className="bg-slate-800/60 border border-slate-700/60 rounded-2xl p-5 space-y-2.5">
+                  <div className="w-9 h-9 bg-orange-500/20 text-orange-400 rounded-xl flex items-center justify-center">
+                    <SecIcon className="h-5 w-5" />
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-100">{sec.title}</h4>
+                  <p className="text-xs text-slate-400 leading-relaxed">{sec.desc}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
+
       </div>
     </section>
   );

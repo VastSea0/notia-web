@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Smartphone, ArrowLeft } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
@@ -32,140 +32,150 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm border-b border-slate-100' : 'bg-white/60 backdrop-blur-sm'
+        isScrolled 
+          ? 'bg-white/90 backdrop-blur-md shadow-xs border-b border-slate-200/60' 
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo & Portfolio Back Link */}
-          <div className="flex items-center space-x-3">
+        <div className="flex items-center justify-between h-20">
+          
+          {/* Logo & Hub Return Link */}
+          <div className="flex items-center gap-3">
             <a
               href="https://egehankahraman.vercel.app"
-              className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-orange-600 bg-slate-100/80 hover:bg-orange-50 border border-slate-200/80 hover:border-orange-200 px-2.5 py-1 rounded-full transition-all"
-              title="Egehan Kahraman Portfolyosuna Dön"
+              className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-slate-900 bg-white/80 border border-slate-200 px-3 py-1.5 rounded-full transition-colors shadow-2xs"
+              title="Egehan Kahraman Portfolyosu"
             >
-              <span className="text-[10px]">←</span>
-              <span className="hidden sm:inline">Egehan Kahraman</span>
+              <ArrowLeft className="h-3 w-3" />
+              <span className="font-medium hidden sm:inline">Egehan Kahraman</span>
             </a>
-            <span className="text-slate-300 font-light hidden sm:inline">/</span>
 
-            <Link to="/" className="flex items-center space-x-2.5">
+            <div className="h-4 w-px bg-slate-200" />
+
+            <Link to="/" className="flex items-center gap-2.5">
               <img
                 src={`${baseUrl}assets/app_icon.png`}
                 alt="Notia Logo"
-                className="h-8 w-8 rounded-xl border border-slate-200 shadow-sm"
+                className="h-8 w-8 rounded-xl shadow-xs"
               />
-              <span className="text-xl font-bold text-slate-900 tracking-tight">Notia</span>
-              <span className="text-[11px] font-semibold bg-orange-100 text-orange-700 px-2 py-0.5 rounded-full">v1.3.0</span>
+              <span className="text-xl font-extrabold text-slate-900 tracking-tight">Notia</span>
             </Link>
           </div>
 
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex items-center space-x-7">
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600">
             <button
               onClick={() => scrollToSection('features')}
-              className="text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
-              Features
+              Özellikler
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
-              How It Works
+              Nasıl Çalışır?
             </button>
             <Link
               to="/pricing"
-              className="text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="hover:text-orange-600 transition-colors"
             >
-              Pricing
+              Fiyatlandırma
             </Link>
             <Link
               to="/versions"
-              className="text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="hover:text-orange-600 transition-colors"
             >
-              Versions
+              Sürümler
+            </Link>
+            <Link
+              to="/privacy"
+              className="hover:text-orange-600 transition-colors"
+            >
+              Gizlilik
             </Link>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="hover:text-orange-600 transition-colors cursor-pointer"
             >
-              Contact
+              İletişim
             </button>
-            <Link
-              to="/privacy"
-              className="text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
-            >
-              Privacy
-            </Link>
+
             <a
               href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-1.5 rounded-full bg-orange-600 hover:bg-orange-700 text-white font-medium text-xs transition-all shadow-sm"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow-xs transition-colors"
             >
-              Get App
+              <Smartphone className="h-3.5 w-3.5 text-emerald-400" />
+              <span>Google Play</span>
             </a>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-slate-600 hover:text-orange-600 transition-colors"
+            className="md:hidden p-2 text-slate-600 hover:text-slate-900 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label="Menüyü Aç"
           >
-            {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Dropdown */}
-        <div
-          className={`md:hidden transition-all duration-300 ${
-            isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          } overflow-hidden`}
-        >
-          <div className="py-4 space-y-3 bg-white/95 rounded-2xl mt-2 p-4 shadow-lg border border-slate-200/80">
+        {isMenuOpen && (
+          <div className="md:hidden bg-white rounded-2xl p-5 shadow-xl border border-slate-200 space-y-3 mt-1 text-sm font-medium text-slate-700">
             <button
               onClick={() => scrollToSection('features')}
-              className="block w-full text-left px-3 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="block w-full text-left py-2 hover:text-orange-600"
             >
-              Features
+              Özellikler
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="block w-full text-left px-3 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="block w-full text-left py-2 hover:text-orange-600"
             >
-              How It Works
+              Nasıl Çalışır?
             </button>
             <Link
               to="/pricing"
-              className="block px-3 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="block py-2 hover:text-orange-600"
               onClick={() => setIsMenuOpen(false)}
             >
-              Pricing
+              Fiyatlandırma
             </Link>
             <Link
               to="/versions"
-              className="block px-3 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="block py-2 hover:text-orange-600"
               onClick={() => setIsMenuOpen(false)}
             >
-              Versions
+              Sürümler
+            </Link>
+            <Link
+              to="/privacy"
+              className="block py-2 hover:text-orange-600"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Gizlilik Politikası
             </Link>
             <button
               onClick={() => scrollToSection('contact')}
-              className="block w-full text-left px-3 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
+              className="block w-full text-left py-2 hover:text-orange-600"
             >
-              Contact
+              İletişim
             </button>
-            <Link
-              to="/privacy"
-              className="block px-3 py-2 text-slate-600 hover:text-orange-600 transition-colors font-medium text-sm"
-              onClick={() => setIsMenuOpen(false)}
+
+            <a
+              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center py-3 bg-emerald-600 text-white rounded-xl text-xs font-bold"
             >
-              Privacy Policy
-            </Link>
+              Google Play Store'da Görüntüle
+            </a>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );
