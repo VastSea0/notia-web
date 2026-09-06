@@ -1,26 +1,43 @@
 <!doctype html>
-<html lang="en">
+<html lang="tr" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/app_icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Notia – Capture Moments, Preserve Memories</title>
-    <meta name="description" content="Add your personal notes, thoughts, and emotions to your photos. Notia helps you create a meaningful archive of your memories, turning every snapshot into a story only you can tell." />
-    <meta name="keywords" content="photo journal, memory keeper, personal stories, photo notes, visual diary, memory app, emotion archive" />
+    <title>Notia — Kişisel Görsel Bellek & Duygusal Fotoğraf Günlüğü</title>
+    <meta name="description" content="Fotoğraflar anı yakalar; Notia duyguyu yaşatır. Material 3 Expressive tasarımı, NotiaAI çok modlu asistanı ve 3 katmanlı tipografi stüdyosu ile galeriniz yaşayan bir anı defterine dönüşsün." />
+    <meta name="keywords" content="Notia, fotoğraf günlüğü, görsel günlük, photo journal, Material 3 Expressive, yapay zeka fotoğraf analizi, NotiaAI, EXIF harita, anı defteri" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Notia – Capture Moments, Preserve Memories" />
-    <meta property="og:description" content="Add your personal notes, thoughts, and emotions to your photos. Notia helps you create a meaningful archive of your memories, turning every snapshot into a story only you can tell." />
+    <meta property="og:title" content="Notia — Kişisel Görsel Bellek & Duygusal Fotoğraf Günlüğü" />
+    <meta property="og:description" content="Fotoğraflar anı yakalar; Notia duyguyu yaşatır. Material 3 Expressive tasarımı ve akıllı NotiaAI ile anılarınızı yaşayan bir hikayeye dönüştürün." />
     <meta property="og:image" content="/assets/app_icon.png" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:title" content="Notia – Capture Moments, Preserve Memories" />
-    <meta property="twitter:description" content="Add your personal notes, thoughts, and emotions to your photos. Notia helps you create a meaningful archive of your memories, turning every snapshot into a story only you can tell." />
+    <meta property="twitter:title" content="Notia — Kişisel Görsel Bellek & Duygusal Fotoğraf Günlüğü" />
+    <meta property="twitter:description" content="Fotoğraflar anı yakalar; Notia duyguyu yaşatır. Material 3 Expressive tasarımı ve akıllı NotiaAI ile anılarınızı yaşayan bir hikayeye dönüştürün." />
     <meta property="twitter:image" content="/assets/app_icon.png" />
+
+    <!-- Google Fonts: Roboto Flex (UI/Sans), Fraunces (Display/Editorial), Lora (Journal/Serif), JetBrains Mono (Code) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=JetBrains+Mono:wght@400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&family=Roboto+Flex:opsz,wght,wdth@8..144,100..1000,25..151&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <script>
+      (function() {
+        var savedTheme = localStorage.getItem('notia-theme');
+        if (savedTheme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body>
+  <body class="antialiased selection:bg-[var(--md-sys-color-primary-container)] selection:text-[var(--md-sys-color-on-primary-container)]">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,3 +1,206 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  color-scheme: dark light;
+
+  /* Material 3 Shape Tokens (Expressive Scale) */
+  --md-sys-shape-corner-none: 0px;
+  --md-sys-shape-corner-extra-small: 4px;
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-large-increased: 20px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-extra-large-increased: 32px;
+  --md-sys-shape-corner-extra-extra-large: 48px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* M3 Motion Easing */
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --md-sys-motion-easing-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+/* Dark Scheme (Notia Warm Mercan Turuncu & Deep Espresso Tones) */
+html.dark, :root {
+  --md-sys-color-surface: #141110;
+  --md-sys-color-surface-dim: #0e0c0b;
+  --md-sys-color-surface-bright: #352e2c;
+  --md-sys-color-surface-container-lowest: #0b0908;
+  --md-sys-color-surface-container-low: #1c1715;
+  --md-sys-color-surface-container: #211c1a;
+  --md-sys-color-surface-container-high: #2c2522;
+  --md-sys-color-surface-container-highest: #372f2c;
+
+  --md-sys-color-on-surface: #efe1dc;
+  --md-sys-color-on-surface-variant: #d6c3bc;
+
+  --md-sys-color-primary: #ffb59d;
+  --md-sys-color-on-primary: #5c1900;
+  --md-sys-color-primary-container: #822900;
+  --md-sys-color-on-primary-container: #ffdbd0;
+
+  --md-sys-color-secondary: #e6bdb1;
+  --md-sys-color-on-secondary: #442a22;
+  --md-sys-color-secondary-container: #5d3f37;
+  --md-sys-color-on-secondary-container: #ffdbd0;
+
+  --md-sys-color-tertiary: #d8c68c;
+  --md-sys-color-on-tertiary: #3a3004;
+  --md-sys-color-tertiary-container: #53461b;
+  --md-sys-color-on-tertiary-container: #f5e2a6;
+
+  --md-sys-color-outline: #9f8c86;
+  --md-sys-color-outline-variant: #52433e;
+}
+
+/* Light Scheme (Warm Editorial Ivory & Coral Tones) */
+html:not(.dark) {
+  --md-sys-color-surface: #fff8f5;
+  --md-sys-color-surface-dim: #e4d7d3;
+  --md-sys-color-surface-bright: #fff8f5;
+  --md-sys-color-surface-container-lowest: #ffffff;
+  --md-sys-color-surface-container-low: #fdf1ec;
+  --md-sys-color-surface-container: #f7ebe6;
+  --md-sys-color-surface-container-high: #f1e5e0;
+  --md-sys-color-surface-container-highest: #ecdfdb;
+
+  --md-sys-color-on-surface: #221917;
+  --md-sys-color-on-surface-variant: #52433e;
+
+  --md-sys-color-primary: #aa3a00;
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: #ffdbd0;
+  --md-sys-color-on-primary-container: #390c00;
+
+  --md-sys-color-secondary: #76574d;
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: #ffdbd0;
+  --md-sys-color-on-secondary-container: #2c160f;
+
+  --md-sys-color-tertiary: #6a5e31;
+  --md-sys-color-on-tertiary: #ffffff;
+  --md-sys-color-tertiary-container: #f5e2a6;
+  --md-sys-color-on-tertiary-container: #231b00;
+
+  --md-sys-color-outline: #85736d;
+  --md-sys-color-outline-variant: #d6c3bc;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: var(--font-sans, "Roboto Flex", sans-serif);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Material Symbols Outlined Icon Styling */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* Material Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--md-sys-color-outline-variant);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--md-sys-color-outline);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Solid Tonal Container Surfaces (ZERO FROSTED GLASS, ZERO BLUR, ZERO GRADIENTS) */
+.bg-m3-surface {
+  background-color: var(--md-sys-color-surface);
+}
+
+.bg-m3-container-lowest {
+  background-color: var(--md-sys-color-surface-container-lowest);
+}
+
+.bg-m3-container-low {
+  background-color: var(--md-sys-color-surface-container-low);
+}
+
+.bg-m3-container {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.bg-m3-container-high {
+  background-color: var(--md-sys-color-surface-container-high);
+}
+
+.bg-m3-container-highest {
+  background-color: var(--md-sys-color-surface-container-highest);
+}
+
+/* Tonal Elevation Shadows */
+.m3-elevation-1 {
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.m3-elevation-2 {
+  box-shadow: 0 2px 6px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.m3-elevation-3 {
+  box-shadow: 0 4px 8px 3px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.24);
+}
+
+/* M3 Expressive Pill button state layer */
+.m3-state-layer {
+  position: relative;
+  overflow: hidden;
+}
+.m3-state-layer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+.m3-state-layer:hover::after {
+  opacity: 0.08;
+}
+.m3-state-layer:active::after {
+  opacity: 0.12;
+}

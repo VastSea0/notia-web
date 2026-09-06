@@ -1,326 +1,332 @@
-import React from 'react';
-import { 
-  Sparkles, 
-  Check, 
-  X, 
-  Shield, 
-  Smartphone, 
-  Infinity,
-  Zap,
-  ExternalLink 
-} from 'lucide-react';
-import Header from './Header';
-import Footer from './Footer';
+import React from "react";
+import { Sparkles, Check, Globe } from "lucide-react";
 
-const Pricing = () => {
+interface PricingProps {
+  lang: "tr" | "en";
+  onOpenDownload: () => void;
+}
+
+export default function Pricing({ lang, onOpenDownload }: PricingProps) {
+  const t = {
+    tr: {
+      chip: "Fiyatlandırma",
+      title: "Şeffaf, Adil ve Esnek Paketler",
+      subtitle:
+        "Notia Android'de ücretsiz olarak kullanılabilir. Pro kullanıcılar ayrıca masaüstü Web sürümüne ve sınırsız yapay zekâya erişir.",
+      tiers: [
+        {
+          name: "Ücretsiz (Free)",
+          price: "₺0",
+          period: "sonsuza dek",
+          badge: null,
+          description: "Android cihazında anılarını düzenlemek ve fotoğraflarını notlamak isteyen herkes için başlangıç.",
+          features: [
+            "Android (Google Play) Erişimi",
+            "Fotoğraf Notlama & Zengin Markdown",
+            "İnteraktif Fotoğraf Haritası & EXIF",
+            "Kişi Etiketleme & Albüm Galerisi",
+            "Biyometrik Kilit & Yerel AES-256",
+            "20 NotiaAI İsteği / Gün",
+          ],
+          button: "Google Play'den Başla",
+          popular: false,
+        },
+        {
+          name: "Pro Aylık",
+          price: "₺49.99",
+          period: "/ ay",
+          badge: "Esnek",
+          description: "Aylık esnek ödeme ile Web sürümü erişimi, sınırsız yapay zekâ ve bulut şifreleme gücü.",
+          features: [
+            "Notia Web Sürümüne Tam Erişim",
+            "Sınırsız NotiaAI İstekleri & Sohbet",
+            "Google Drive AES-256 Bulut Yedekleme",
+            "Tamamen Reklamsız Deneyim",
+            "PDF Fotoğraf Kitabı Dışa Aktarma",
+            "Tüm Ücretsiz özellikler",
+          ],
+          button: "Aylık Abone Ol",
+          popular: false,
+        },
+        {
+          name: "Pro Yıllık",
+          price: "₺34.99",
+          period: "/ ay • Yıllık ₺419.99",
+          badge: "7 Gün Ücretsiz Deneme • %30 Tasarruf",
+          description: "En popüler tercih. 7 gün risksiz deneyin, mobil ve Web sürümünde anılarınızı sınırsızca yaşatın.",
+          features: [
+            "Notia Web Sürümüne Tam Erişim",
+            "Pro Aylık'taki TÜM özellikler",
+            "7 gün boyunca tamamen ücretsiz deneme",
+            "Yıllık %30 indirim avantajı",
+            "Öncelikli Geliştirici Desteği",
+          ],
+          button: "7 Gün Ücretsiz Dene",
+          popular: true,
+        },
+        {
+          name: "Ömür Boyu (Lifetime)",
+          price: "₺799.99",
+          period: "tek seferlik ödeme",
+          badge: "Sıfır Abonelik",
+          description: "Tek bir ödeme yapın; Android ve Web sürümüne, tüm Pro özelliklere ve gelecekteki güncellemelere ömür boyu sahip olun.",
+          features: [
+            "Notia Web Sürümüne Ömür Boyu Kalıcı Erişim",
+            "Tüm mevcut ve gelecekteki Pro özellikler",
+            "Sıfır aylık veya yıllık abonelik maliyeti",
+            "Kalıcı lisans anahtarı güvencesi",
+            "Tüm platform güncellemeleri dahil",
+            "VIP Destek Hattı",
+          ],
+          button: "Ömür Boyu Lisans Al",
+          popular: false,
+        },
+      ],
+      tableTitle: "Detaylı Özellik Karşılaştırması",
+      tableFeatures: [
+        { name: "Android (Google Play) Erişimi", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "Notia Web Sürümüne Erişim (Masaüstü)", free: false, monthly: true, annual: true, lifetime: true },
+        { name: "Fotoğraf Notlama & Zengin Markdown", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "İnteraktif Fotoğraf Haritası & EXIF", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "Kişi Etiketleme & Albüm Galerisi", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "Biyometrik Kilit & AES-256 Şifreleme", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "NotiaAI Görsel Asistan & Sohbet", free: "20 istek / gün", monthly: "Sınırsız", annual: "Sınırsız", lifetime: "Sınırsız" },
+        { name: "Google Drive AES-256 E2EE Yedekleme", free: false, monthly: true, annual: true, lifetime: true },
+        { name: "PDF Fotoğraf Kitabı Dışa Aktarma", free: false, monthly: true, annual: true, lifetime: true },
+        { name: "Reklamsız Deneyim", free: false, monthly: true, annual: true, lifetime: true },
+      ],
+    },
+    en: {
+      chip: "Pricing",
+      title: "Transparent, Fair, and Flexible Plans",
+      subtitle:
+        "Notia is free to use on Android. Pro subscribers unlock full access to the desktop Web version and unlimited AI.",
+      tiers: [
+        {
+          name: "Free",
+          price: "₺0",
+          period: "forever",
+          badge: null,
+          description: "Start organizing your photos and memories on your Android device.",
+          features: [
+            "Android (Google Play) Access",
+            "Photo Journaling & Rich Markdown",
+            "Interactive Photo Map & EXIF",
+            "People Tagging & Album Gallery",
+            "Biometric Lock & Local AES-256",
+            "20 NotiaAI Requests / Day",
+          ],
+          button: "Start on Google Play",
+          popular: false,
+        },
+        {
+          name: "Pro Monthly",
+          price: "₺49.99",
+          period: "/ month",
+          badge: "Flexible",
+          description: "Flexible monthly billing with Web version access, unlimited AI, and encrypted sync.",
+          features: [
+            "Full Access to Notia Web Version",
+            "Unlimited NotiaAI Requests & Chat",
+            "Google Drive AES-256 Cloud Backup",
+            "100% Ad-Free Experience",
+            "PDF Photobook Export",
+            "All Free features",
+          ],
+          button: "Subscribe Monthly",
+          popular: false,
+        },
+        {
+          name: "Pro Annual",
+          price: "₺34.99",
+          period: "/ mo • Billed ₺419.99/yr",
+          badge: "7-Day Free Trial • Save 30%",
+          description: "Most popular choice. Enjoy a 7-day risk-free trial on both Android and Web without limits.",
+          features: [
+            "Full Access to Notia Web Version",
+            "EVERY feature in Pro Monthly",
+            "7 days completely free trial",
+            "30% annual savings",
+            "Priority Developer Support",
+          ],
+          button: "Try 7 Days Free",
+          popular: true,
+        },
+        {
+          name: "Lifetime License",
+          price: "₺799.99",
+          period: "one-time payment",
+          badge: "Zero Subscription",
+          description: "Pay once; own Android and Web access, all Pro features, and all future updates forever.",
+          features: [
+            "Lifetime Access to Notia Web Version",
+            "All current and future Pro features",
+            "Zero monthly or yearly subscription fees",
+            "Permanent license guarantee",
+            "All future platform updates included",
+            "VIP Support Line",
+          ],
+          button: "Get Lifetime License",
+          popular: false,
+        },
+      ],
+      tableTitle: "Detailed Feature Comparison",
+      tableFeatures: [
+        { name: "Android (Google Play) Access", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "Notia Web Version Access (Desktop)", free: false, monthly: true, annual: true, lifetime: true },
+        { name: "Photo Journaling & Rich Markdown", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "Interactive Photo Map & EXIF", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "People Tagging & Album Gallery", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "Biometric Lock & AES-256 Encryption", free: true, monthly: true, annual: true, lifetime: true },
+        { name: "NotiaAI Visual Assistant & Chat", free: "20 req / day", monthly: "Unlimited", annual: "Unlimited", lifetime: "Unlimited" },
+        { name: "Google Drive AES-256 E2EE Backup", free: false, monthly: true, annual: true, lifetime: true },
+        { name: "PDF Photobook Export", free: false, monthly: true, annual: true, lifetime: true },
+        { name: "Ad-Free Experience", free: false, monthly: true, annual: true, lifetime: true },
+      ],
+    },
+  }[lang];
+
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-between">
-      <Header />
-
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20 w-full space-y-16">
-        
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-100 text-orange-800 text-xs font-semibold rounded-full uppercase tracking-wider">
-            Notia Pro Seçenekleri
-          </div>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-            Anılarınız İçin En Uygun Planı Seçin
-          </h1>
-          <p className="text-base text-slate-600 leading-relaxed">
-            Fotoğraf notlama, Markdown ve harita özellikleri daima ücretsizdir. Sınırsız NotiaAI, reklamsız deneyim ve bulut senkronizasyonu için Pro ayrıcalıklarını keşfedin.
-          </p>
+    <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="pricing">
+      <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)] text-xs font-semibold">
+          <Sparkles className="w-3.5 h-3.5" />
+          <span>{t.chip}</span>
         </div>
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-[var(--md-sys-color-on-surface)]">
+          {t.title}
+        </h2>
+        <p className="text-base sm:text-lg text-[var(--md-sys-color-on-surface-variant)]">
+          {t.subtitle}
+        </p>
+      </div>
 
-        {/* 4 Pricing Cards Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          
-          {/* 1. Ücretsiz */}
-          <div className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
+      {/* 4 Pricing Cards Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {t.tiers.map((tier, idx) => (
+          <div
+            key={idx}
+            className={`p-6 sm:p-7 rounded-[32px] flex flex-col justify-between transition-all ${
+              tier.popular
+                ? "bg-m3-container-high border-2 border-[var(--md-sys-color-primary)] shadow-xl relative"
+                : "bg-m3-container-low border border-[var(--md-sys-color-outline-variant)]/40 shadow-md hover:bg-m3-container"
+            }`}
+          >
+            <div className="space-y-4 text-left">
+              {tier.popular && (
+                <span className="inline-block px-3 py-1 rounded-full bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)] text-[11px] font-bold tracking-wide uppercase">
+                  {tier.badge}
+                </span>
+              )}
+              {tier.badge && !tier.popular && (
+                <span className="inline-block px-3 py-1 rounded-full bg-[var(--md-sys-color-secondary-container)] text-[var(--md-sys-color-on-secondary-container)] text-[11px] font-bold tracking-wide">
+                  {tier.badge}
+                </span>
+              )}
+
               <div>
-                <h3 className="text-base font-bold text-slate-900">Ücretsiz Başlangıç</h3>
-                <p className="text-xs text-slate-500 mt-0.5">Temel fotoğraf notlama</p>
+                <h3 className="text-lg font-bold text-[var(--md-sys-color-on-surface)]">
+                  {tier.name}
+                </h3>
+                <div className="mt-2 flex items-baseline gap-1">
+                  <span className="text-3xl font-black text-[var(--md-sys-color-on-surface)]">
+                    {tier.price}
+                  </span>
+                  <span className="text-xs text-[var(--md-sys-color-on-surface-variant)]">
+                    {tier.period}
+                  </span>
+                </div>
               </div>
-              <div className="text-3xl font-black text-slate-900 font-mono">
-                Ücretsiz
+
+              <p className="text-xs text-[var(--md-sys-color-on-surface-variant)] leading-relaxed font-normal">
+                {tier.description}
+              </p>
+
+              <div className="pt-2 border-t border-[var(--md-sys-color-outline-variant)]/20 space-y-2.5">
+                {tier.features.map((feat, fIdx) => (
+                  <div key={fIdx} className="flex items-start gap-2 text-xs text-[var(--md-sys-color-on-surface)]">
+                    <Check className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                    <span className={feat.includes("Web") ? "font-bold text-[var(--md-sys-color-primary)]" : ""}>
+                      {feat}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <ul className="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-100">
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Sınırsız fotoğraf notu & Markdown</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>İnteraktif fotoğraf haritası</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Biyometrik kilit & AES-256</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Zap className="h-4 w-4 text-orange-500 shrink-0" />
-                  <span>Günlük 20 NotiaAI isteği</span>
-                </li>
-              </ul>
             </div>
 
-            <a
-              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 rounded-xl text-xs font-semibold transition-colors"
-            >
-              Google Play'den Yükle
-            </a>
+            <div className="pt-6 mt-6 border-t border-[var(--md-sys-color-outline-variant)]/20">
+              <button
+                onClick={onOpenDownload}
+                className={`w-full py-3 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                  tier.popular
+                    ? "bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)] shadow-md hover:shadow-lg"
+                    : "bg-m3-container text-[var(--md-sys-color-on-surface)] hover:bg-m3-container-high border border-[var(--md-sys-color-outline-variant)]/40"
+                }`}
+              >
+                {tier.button}
+              </button>
+            </div>
           </div>
+        ))}
+      </div>
 
-          {/* 2. Pro Aylık */}
-          <div className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-base font-bold text-slate-900">Pro Aylık</h3>
-                <p className="text-xs text-slate-500 mt-0.5">Esnek aylık abonelik</p>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-black text-slate-900 font-mono">₺49.99</span>
-                <span className="text-xs text-slate-500">/ ay</span>
-              </div>
-              <ul className="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-100">
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Tamamen reklamsız</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-orange-500 shrink-0" />
-                  <span>Sınırsız NotiaAI asistanı</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Öncelikli yanıt hızı</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Bulut senkronizasyonu</span>
-                </li>
-              </ul>
-            </div>
+      {/* Feature Comparison Table */}
+      <div className="mt-14 p-6 sm:p-8 rounded-[32px] bg-m3-container-low border border-[var(--md-sys-color-outline-variant)]/40 shadow-lg">
+        <h3 className="text-xl font-bold text-[var(--md-sys-color-on-surface)] text-center mb-6">
+          {t.tableTitle}
+        </h3>
 
-            <a
-              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-colors"
-            >
-              Uygulamada Başlat
-            </a>
-          </div>
-
-          {/* 3. Pro Yıllık (En Popüler) */}
-          <div className="bg-gradient-to-b from-orange-50/60 to-white rounded-3xl p-7 border-2 border-orange-500 shadow-xl relative flex flex-col justify-between space-y-6">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="bg-orange-600 text-white text-[10px] font-bold px-3 py-0.5 rounded-full uppercase tracking-wider shadow-sm">
-                En Popüler Plan
-              </span>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-base font-bold text-slate-900">Pro Yıllık</h3>
-                <p className="text-xs text-orange-800 font-medium mt-0.5">Aylık ~₺37.50 (Yıllık Tasarruf)</p>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-black text-slate-900 font-mono">₺449.99</span>
-                <span className="text-xs text-slate-500">/ yıl</span>
-              </div>
-              <ul className="space-y-2.5 text-xs text-slate-700 pt-3 border-t border-orange-200/80 font-medium">
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Tamamen reklamsız</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Sparkles className="h-4 w-4 text-orange-600 shrink-0" />
-                  <span>Sınırsız NotiaAI kullanımı</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Öncelikli yapay zekâ hızı</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Drive & bulut yedekleme</span>
-                </li>
-              </ul>
-            </div>
-
-            <a
-              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center py-2.5 bg-orange-600 hover:bg-orange-700 text-white rounded-xl text-xs font-semibold transition-colors shadow-sm"
-            >
-              Yıllık Pro'ya Geç
-            </a>
-          </div>
-
-          {/* 4. Pro Ömür Boyu */}
-          <div className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-base font-bold text-slate-900">Ömür Boyu (Lifetime)</h3>
-                <p className="text-xs text-slate-500 mt-0.5">Tek seferlik kalıcı lisans</p>
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-black text-slate-900 font-mono">₺799.99</span>
-                <span className="text-xs text-slate-500">tek sefer</span>
-              </div>
-              <ul className="space-y-2.5 text-xs text-slate-600 pt-3 border-t border-slate-100">
-                <li className="flex items-center gap-2">
-                  <Infinity className="h-4 w-4 text-purple-600 shrink-0" />
-                  <span>Ömür boyu kalıcı lisans</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Tüm Pro ayrıcalıkları</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Gelecek güncellemelere erişim</span>
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Sıfır tekrar eden ödeme</span>
-                </li>
-              </ul>
-            </div>
-
-            <a
-              href="https://play.google.com/store/apps/details?id=com.vastsea.notia"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full text-center py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition-colors"
-            >
-              Ömür Boyu Lisans Al
-            </a>
-          </div>
-
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs sm:text-sm">
+            <thead>
+              <tr className="border-b border-[var(--md-sys-color-outline-variant)]/30 text-[var(--md-sys-color-on-surface-variant)]">
+                <th className="py-3 px-4 font-semibold">{lang === "tr" ? "Özellik" : "Feature"}</th>
+                <th className="py-3 px-3 font-semibold text-center">{lang === "tr" ? "Ücretsiz" : "Free"}</th>
+                <th className="py-3 px-3 font-semibold text-center">{lang === "tr" ? "Pro Aylık" : "Monthly"}</th>
+                <th className="py-3 px-3 font-semibold text-center text-[var(--md-sys-color-primary)] font-bold">{lang === "tr" ? "Pro Yıllık" : "Annual"}</th>
+                <th className="py-3 px-3 font-semibold text-center">{lang === "tr" ? "Ömür Boyu" : "Lifetime"}</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-[var(--md-sys-color-outline-variant)]/20">
+              {t.tableFeatures.map((row, rIdx) => (
+                <tr key={rIdx} className="hover:bg-m3-container/50 transition-colors">
+                  <td className="py-3.5 px-4 font-medium text-[var(--md-sys-color-on-surface)]">
+                    {row.name}
+                  </td>
+                  <td className="py-3.5 px-3 text-center text-[var(--md-sys-color-on-surface-variant)]">
+                    {typeof row.free === "boolean" ? (
+                      row.free ? <Check className="w-4 h-4 text-emerald-500 mx-auto" /> : "—"
+                    ) : (
+                      row.free
+                    )}
+                  </td>
+                  <td className="py-3.5 px-3 text-center text-[var(--md-sys-color-on-surface-variant)]">
+                    {typeof row.monthly === "boolean" ? (
+                      row.monthly ? <Check className="w-4 h-4 text-emerald-500 mx-auto" /> : "—"
+                    ) : (
+                      row.monthly
+                    )}
+                  </td>
+                  <td className="py-3.5 px-3 text-center font-semibold text-[var(--md-sys-color-primary)]">
+                    {typeof row.annual === "boolean" ? (
+                      row.annual ? <Check className="w-4 h-4 text-[var(--md-sys-color-primary)] mx-auto" /> : "—"
+                    ) : (
+                      row.annual
+                    )}
+                  </td>
+                  <td className="py-3.5 px-3 text-center text-[var(--md-sys-color-on-surface-variant)]">
+                    {typeof row.lifetime === "boolean" ? (
+                      row.lifetime ? <Check className="w-4 h-4 text-emerald-500 mx-auto" /> : "—"
+                    ) : (
+                      row.lifetime
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-
-        {/* Feature Comparison Table */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
-          <h2 className="text-xl font-bold text-slate-900 text-center">
-            Detaylı Özellik Karşılaştırması
-          </h2>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead>
-                <tr className="border-b border-slate-200 text-slate-500">
-                  <th className="py-3.5 px-4 font-semibold">Özellik</th>
-                  <th className="py-3.5 px-4 font-semibold text-center">Ücretsiz</th>
-                  <th className="py-3.5 px-4 font-semibold text-center">Pro Aylık</th>
-                  <th className="py-3.5 px-4 font-semibold text-center text-orange-600">Pro Yıllık</th>
-                  <th className="py-3.5 px-4 font-semibold text-center text-purple-600">Ömür Boyu</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-slate-700">
-                <tr>
-                  <td className="py-3.5 px-4 font-medium">Fotoğraf Notlama & Zengin Markdown</td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-medium">İnteraktif Fotoğraf Haritası & EXIF</td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-medium">Kişi Etiketleme & Albüm Galerisi</td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-medium">Biyometrik Kilit & AES-256 Yerel Şifreleme</td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-medium">NotiaAI Görsel Asistan & Sohbet</td>
-                  <td className="text-center py-3.5 px-4 font-medium text-slate-500">20 istek / gün</td>
-                  <td className="text-center py-3.5 px-4 font-bold text-slate-900">Sınırsız</td>
-                  <td className="text-center py-3.5 px-4 font-bold text-orange-600">Sınırsız</td>
-                  <td className="text-center py-3.5 px-4 font-bold text-purple-600">Sınırsız</td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-medium">Reklamsız Deneyim</td>
-                  <td className="text-center py-3.5 px-4 text-slate-400">—</td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                </tr>
-                <tr>
-                  <td className="py-3.5 px-4 font-medium">Google Drive & Bulut Senkronizasyon</td>
-                  <td className="text-center py-3.5 px-4 text-slate-400">—</td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                  <td className="text-center py-3.5 px-4"><Check className="h-4 w-4 text-emerald-600 mx-auto" /></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* FAQ Section */}
-        <div className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
-          <div className="text-center max-w-xl mx-auto space-y-1">
-            <h2 className="text-xl font-bold text-slate-900">Sıkça Sorulan Sorular</h2>
-            <p className="text-xs text-slate-500">Üyelik ve satın almalar hakkında bilmeniz gerekenler</p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-6 pt-4 text-xs sm:text-sm">
-            <div className="space-y-2">
-              <h3 className="font-bold text-slate-900">Ödemeler nasıl güvenceye alınır?</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Tüm satın alma işlemleri doğrudan Google Play Store veya Apple App Store altyapısıyla gerçekleştirilir. Notia sunucularında kredi kartı bilgisi tutulmaz.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="font-bold text-slate-900">Ömür Boyu (Lifetime) lisansı nedir?</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Tek bir defa ₺799.99 ödeyerek tüm Pro özelliklerine ve gelecekteki güncellemelere kalıcı olarak sahip olursunuz; aylık veya yıllık yenileme ücreti ödemezsiniz.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="font-bold text-slate-900">Aboneliğimi istediğim an iptal edebilir miyim?</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Evet. Google Play Store veya App Store hesap ayarlarınızdan aboneliğinizi dilediğiniz an tek tıkla iptal edebilirsiniz.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="font-bold text-slate-900">Temel özellikler için ödeme yapmam gerekir mi?</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Hayır. Notia'nın fotoğraf notlama, harita, yerel şifreleme ve albüm özellikleri tamamen ücretsizdir.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </section>
   );
-};
-
-export default Pricing;
+}
